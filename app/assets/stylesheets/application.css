@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+/*プリコンパイルに対応例　image-url（"元の画像名"）とする*/
+/*body {*/
+/*  background-image: image-url("hoge.jpg");*/
+
+/*}*/
