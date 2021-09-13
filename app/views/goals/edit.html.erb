@@ -1,0 +1,27 @@
+<!--目標編集ページ-->
+<h1>目標編集ページ</h1>
+  <!--成功時・エラー時メッセージ-->
+  <%= render 'goals/message', goal: @goal %>
+
+ <!--form_withを利用すると、インスタンス変数を渡すだけで、
+ インスタンス変数内のモデルを解読して、
+ 投稿したタイトルと内容を代入してくれる-->
+ <%= form_with model: @goal, url: goal_path, local: true do |f| %>
+ <p>
+   <div>Title</div>
+
+    <%= f.text_field :goal_title, class:"mb-1" %>
+ </p>
+ <p>
+   <div>Detail</div>
+    <%= f.text_field :goal_description, class:"mb-1" %>
+ </p>
+ <div class="actions">
+     <!--<input type="submit" name="commit" value="Update Goal" data-disable-with="Update Goal">-->
+     <%#= link_to "Update Goal",goal_path(@goal.id), class:"btn btn-success mb-1" %>
+      <%= f.submit "Update Goal", class:"btn btn-success mb-1" %>
+ </div>
+ <% end %>
+ <%= link_to "Show",goal_path(@goal.id) %>
+  |
+ <%= link_to "Back",goals_path %>

@@ -1,0 +1,93 @@
+<!--目標の詳細ページ-->
+<div class="container px-5 px-sm-0">
+  <div class="row">
+   <body>
+    <div class="col-md-3">
+
+       <!--成功時・エラー時メッセージ-->
+        <%= render 'goals/message', goal: @goal %>
+
+       <!--ユーザーインフォ-->
+       <%= render 'goals/info', customer: @customer, customers: @customers %>
+
+       <!--New book-->
+       <%= render 'goals/new', goal: @goal_new %>
+
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+    <!--Goal detailの部分　ここから-->
+    <h2>Goal detail</h2>
+     <table class="table">
+     <thead></thead>
+      <tbody>
+          <tr>
+            <th scope="col">
+             <!--ユーザページに飛ばす画像と名前のところ両方とも-->
+             <p>
+              <%= link_to customer_path(@customer.id) do %>
+               <% if @customer.profile_image.attached? %>
+                 <%= image_tag customer.profile_image(resize:'40, 40')%>
+               <% else %>
+                 <%= image_tag 'no_image.jpg'(resize:'40x40') %>
+               <% end %>
+               <%#= attachment_image_tag @customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
+              <% end %>
+             </p>
+             <!--ユーザページに飛ばす画像と名前のところ両方とも-->
+             <p><%= link_to @customer.name,customer_path(@customer.id) %></p>
+            </th>
+
+            <!--目標の詳細画面に飛ばす-->
+            <th scope="col"><%= link_to @goal.goal_title,goal_path(@goal.id)%></th>
+            <th scope="col"><%= @goal.goal_description %></th>
+
+            <% if @customer.id == current_customer.id %>
+
+            <th scope="col"><%= link_to "Edit",edit_goal_path(@goal.id), class:"btn btn-sm btn-success" %></th>
+            <th scope="col"><%= link_to "Destroy", goal_path(@goal.id), method: :delete, class:"btn btn-sm btn-danger" %></th>
+            <% end %>
+
+            <!--いいね機能-->
+            <th>
+             <!--今投稿されている目標の中で現在のユーザはいいねしていますか？-->
+             <% if @goal.favorited_by?(current_customer) %>
+             <%# if Favorite.find_by(user_id: current_user.id, goal_id: goal.id) %>
+               <p>
+                 <%= link_to goal_favorites_path(@goal), method: :delete do %>
+                   <i class="fas fa-heart">
+                     <%= @goal.favorites.count %> いいね
+                   </i>
+                  <!--♥<%#= @goal.favorites.count %> いいね-->
+                 <% end %>
+               </p>
+             <% else %>
+               <p>
+                 <%= link_to goal_favorites_path(@goal), method: :post do %>
+                  <i class="far fa-heart">
+                    <%= @goal.favorites.count %> いいね
+                  </i>
+                   <!--♡<%#= @goal.favorites.count %> いいね-->
+                 <% end %>
+               </p>
+             <% end %>
+
+            </th>
+
+            <th scope="col">コメント数：<%= @goal.goal_comments.count %></th>
+
+
+          </tr>
+      </tbody>
+       <!--Goal detailの部分　ここまで-->
+
+      <!--コメント欄、コメント入力欄ここから-->
+      <%= render 'goals/goal_comment', goal: @goal, goal_comment: @goal_comment %>
+      <!--コメント欄、コメント入力欄ここまで-->
+
+     </table>
+    </div>
+
+  </body>
+ </div>
+</div>

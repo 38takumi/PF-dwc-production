@@ -1,7 +1,11 @@
 <!--ユーザーインフォを入れる　ここから-->
 <p>
   <h2>User info</h2>
-    <%= attachment_image_tag customer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%>
+  <% if @customer.profile_image.attached? %>
+    <%= image_tag customer.profile_image(resize:'100, 100')%>
+  <% else %>
+    <%= image_tag 'no_image.jpg'(resize:'100x100') %>
+  <% end %>
 </p>
    <table class="table">
     <tbody>
@@ -38,7 +42,7 @@
    </table>
 
 <!-- フォローボタン -->
-<!--ユーザーが現在ユーザーなら表示させない-->
+<!--ユーザが現在ユーザなら表示させない-->
 <%# if customer != current_customer %>
   <%# if current_customer.following?(customer) %>
     <%#= link_to customer_relationships_path(customer.id), method: :delete do %>

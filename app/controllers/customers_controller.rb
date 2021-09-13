@@ -1,8 +1,6 @@
 class CustomersController < ApplicationController
   before_action :correct_customer,only: [:edit,:update]
 
-
-  #目標を今回は使うので目標に変更
   def index
     @customers = Customer.all
     @customer = current_customer
@@ -24,7 +22,7 @@ class CustomersController < ApplicationController
   #   @customer = Customer.new(customer_params)
   #   if @customer.save
   #     flash[:notice] = "Welcome! You have signed up successfully."
-  #     # ユーザー詳細ページに飛ばす　pathは調べる
+  #     # ユーザ詳細ページに飛ばす　pathは調べる
   #     redirect_to customer_path(@customer.id)
   #   else
   #     @customers = Customer.all
@@ -42,11 +40,11 @@ class CustomersController < ApplicationController
     @customer = current_customer
     if @customer.update(customer_params)
       flash[:notice] = "You have updated user successfully."
-      # ユーザー詳細ページに飛ばす
+      # ユーザ詳細ページに飛ばす
       redirect_to customer_path(@customer.id)
     else
       @customers = Customer.all
-      # ユーザー編集ページに飛ばす
+      # ユーザ編集ページに飛ばす
       render :edit
     end
   end
@@ -59,15 +57,12 @@ class CustomersController < ApplicationController
   # end
 
 
-
-
   def correct_customer
       @customer = Customer.find(params[:id])
     unless @customer.id == current_customer.id
       redirect_to customer_path(current_customer)
     end
   end
-
 
 
   private
