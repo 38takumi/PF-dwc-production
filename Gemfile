@@ -63,6 +63,20 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 
+gem 'devise'
+
+gem 'jquery-rails'
+gem 'momentjs-rails'
+gem 'fullcalendar-rails'
+gem 'bootstrap', '~> 4.5'
+gem 'font-awesome-sass', '~> 5.13'
+
+gem 'kaminari','~> 1.2.1'
+
+gem 'pry-byebug'
+# viewでは<% binding.pry、通常はbinding.pry
+
+
 
 
 

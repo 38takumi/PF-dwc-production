@@ -14,3 +14,67 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require jquery
+//= require moment
+//= require fullcalendar
+
+//= require popper
+//= require bootstrap-sprockets
+
+
+$(function () {
+  $('#calendar').fullCalendar({
+    selectable: true,
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+
+
+    locale: 'ja',
+    // display business hours、土日の色分け
+    businessHours: true,
+    //カレンダー上部を年月で表示させる
+    titleFormat: 'YYYY年 M月',
+    //曜日を日本語表示
+    // dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
+    // カレンダーの時間表示
+    // eventTimeFormat: { hour: 'numeric', minute: '2-digit' },
+
+
+    //終了時刻がないイベントの表示間隔
+    defaultTimedEventDuration: '03:00:00',
+    buttonText: {
+        prev: '前',
+        next: '次',
+        prevYear: '前年',
+        nextYear: '翌年',
+        today: '今日',
+        month: '月',
+        week: '週',
+        day: '日'
+    },
+    // Drag & Drop & Resize
+    editable: true,
+    //イベントの時間表示を２４時間に
+    timeFormat: "HH:mm",
+
+    events: "/events.json",
+    color: 'yellow',
+    textColor: 'black',
+
+
+    dayClick: function(date) {
+    //   alert('clicked ' + date.format());
+    },
+    select: function(startDate, endDate) {
+      // alert('selected ' + startDate.format() + ' to ' + endDate.format());
+      $('#new_event').modal('show');
+      $(".input-start").val(moment(startDate).format("YYYY-MM-DD HH:mm"));
+      $(".input-end").val(moment(endDate).format("YYYY-MM-DD HH:mm"));
+    }
+
+  });
+});

@@ -1,0 +1,55 @@
+<div id="calendar"></div>
+
+<!--入力のポップ　ここから-->
+<div class="modal" id="new_event" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">イベント追加</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group field">
+          <%= form_with(model: @event, url: events_path, method: :post, remote: true) do |f| %>
+            <div class="form-inputs">
+              <div class="form-group">
+                <%= f.label :title, "予定", class: "form-control-label"%>
+                <div class="input-group" data-target-input="nearest">
+                  <%= f.text_field :title, class: "form-control", placeholder: "見出し"%>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :description, "メモ", class: "form-control-label"%>
+                <div class="input-group" data-target-input="nearest">
+                  <%= f.text_field :description, class: "form-control", placeholder: "内容"%>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :start, "開始時間", class: "form-control-label"%>
+                <div class="input-group" data-target-input="nearest">
+                  <%= f.text_field :start, class: "form-control input-start", placeholder: "半角英数で入力して下さい"%>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :end, "終了時間", class: "form-control-label"%>
+                <div class="input-group" data-target-input="nearest">
+                  <%= f.text_field :end, class: "form-control input-end", placeholder: "半角英数で入力して下さい"%>
+                </div>
+              </div>
+            </div>
+            <p>時間は半角英数で「年/月/日/時間:分」で入力して下さい。</p>
+            <div class="modal-footer actions">
+              <%= f.submit "入力完了", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--入力のポップ　ここまで -->

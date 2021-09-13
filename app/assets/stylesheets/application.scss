@@ -12,9 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
 
-
+// @import "fullcalendar.min";
+@import "bootstrap";
 
 /*プリコンパイルに対応例　image-url（"元の画像名"）とする*/
 /*body {*/
