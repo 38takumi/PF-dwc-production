@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  goal_title: MyString
+  goal_description: MyText
+  goal_start: 2021-09-13 05:31:47
+  goal_end: 2021-09-13 05:31:47
+
+two:
+  goal_title: MyString
+  goal_description: MyText
+  goal_start: 2021-09-13 05:31:47
+  goal_end: 2021-09-13 05:31:47
