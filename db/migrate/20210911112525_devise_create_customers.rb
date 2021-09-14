@@ -5,9 +5,9 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
     create_table :customers do |t|
       ## Database authenticatable
       #メールアドレス
-      t.string :email,              null: false, default: ""
+      t.string :email,                null: false, default: ""
       # 暗号化されたパスワード
-      t.string :encrypted_password, null: false, default: ""
+      t.string :encrypted_password,   null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token
@@ -34,7 +34,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.string :name
+      t.string :name, null: false, default: ""
       t.text :introduction
 
       t.timestamps null: false

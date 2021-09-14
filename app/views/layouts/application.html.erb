@@ -87,7 +87,7 @@
       <main>
         <div class="col-md-8 offset-md-4">
           <!--検索機能-->
-          <% if user_signed_in? %>
+          <% if customer_signed_in? %>
           <!--<table class="table" >-->
             <!--<tbody>-->
              <%= form_tag(search_path, method: :get) do %>

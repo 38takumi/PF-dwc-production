@@ -69,12 +69,26 @@ class Customer < ApplicationRecord
 
 
   # 画像のタイプ（拡張子）にバリデーションを実装する
-  validate :image_type
+  validate :image_type, if: :was_attached?
+
   private
 
   def image_type
-    if !image.blob.content_type.in?(%('image/jpeg image/png'))
-  # image.purge # Rails6では、この1行は必要ない
-  errors.add(:image, 'はJPEGまたはPNG形式を選択してアップロードしてください') end
+    if !profile_image.blob.content_type.in?(%('image/jpeg image/png'))
+      profile_image.purge # Rails6では、この1行は必要ない
+      errors.add(:profile_image, 'はJPEGまたはPNG形式を選択してアップロードしてください')
+    end
   end
+
+  def was_attached?
+    self.profile_image.attached?
+  end
+
+
+
+
+
+
+
+
 end

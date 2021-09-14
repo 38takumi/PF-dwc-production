@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-   # 出来ればこっち
+  # 出来ればこっち
   # root to: 'home#top'
   root to: "events#index"
 

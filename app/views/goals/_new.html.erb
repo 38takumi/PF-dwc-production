@@ -7,5 +7,11 @@
 
   <h4>Detail</h4>
   <%= f.text_area :goal_description %>
+  
+  <h4>期限</h4>
+  <%= f.text_area :goal_start %>
+  ~
+  <%= f.text_area :goal_end %>
+  
   <%= f.submit '作成する', class:"btn btn-success" %>
 <% end %>

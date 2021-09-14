@@ -1,11 +1,12 @@
-<div id="calendar"></div>
+
+<div id="calendar" class="main-visual"></div>
 
 <!--入力のポップ　ここから-->
 <div class="modal" id="new_event" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">イベント追加</h5>
+        <h5 class="modal-title">予定追加</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -15,30 +16,30 @@
           <%= form_with(model: @event, url: events_path, method: :post, remote: true) do |f| %>
             <div class="form-inputs">
               <div class="form-group">
-                <%= f.label :title, "予定", class: "form-control-label"%>
+                <%= f.label :event_title, "予定", class: "form-control-label"%>
                 <div class="input-group" data-target-input="nearest">
-                  <%= f.text_field :title, class: "form-control", placeholder: "見出し"%>
+                  <%= f.text_field :event_title, class: "form-control", placeholder: "見出し"%>
                 </div>
               </div>
 
               <div class="form-group">
-                <%= f.label :description, "メモ", class: "form-control-label"%>
+                <%= f.label :event_description, "メモ", class: "form-control-label"%>
                 <div class="input-group" data-target-input="nearest">
-                  <%= f.text_field :description, class: "form-control", placeholder: "内容"%>
+                  <%= f.text_field :event_description, class: "form-control", placeholder: "内容"%>
                 </div>
               </div>
 
               <div class="form-group">
-                <%= f.label :start, "開始時間", class: "form-control-label"%>
+                <%= f.label :event_start, "開始時間", class: "form-control-label"%>
                 <div class="input-group" data-target-input="nearest">
-                  <%= f.text_field :start, class: "form-control input-start", placeholder: "半角英数で入力して下さい"%>
+                  <%= f.text_field :event_start, class: "form-control input-start", placeholder: "半角英数で入力して下さい"%>
                 </div>
               </div>
 
               <div class="form-group">
-                <%= f.label :end, "終了時間", class: "form-control-label"%>
+                <%= f.label :event_end, "終了時間", class: "form-control-label"%>
                 <div class="input-group" data-target-input="nearest">
-                  <%= f.text_field :end, class: "form-control input-end", placeholder: "半角英数で入力して下さい"%>
+                  <%= f.text_field :event_end, class: "form-control input-end", placeholder: "半角英数で入力して下さい"%>
                 </div>
               </div>
             </div>
