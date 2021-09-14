@@ -17,13 +17,13 @@ class Goal < ApplicationRecord
  # 検索機能　ここから
  def self.search(search, word)
   if search == "forward_match"
-   @goal = Goal.where("title LIKE?","#{word}%")
+   @goal = Goal.where("goal_title LIKE?","#{word}%")
   elsif search == "backward_match"
-    @goal = Goal.where("title LIKE?","%#{word}")
+    @goal = Goal.where("goal_title LIKE?","%#{word}")
   elsif search == "perfect_match"
     @goal = Goal.where("#{word}")
   elsif search == "partial_match"
-    @goal = Goal.where("title LIKE?","%#{word}%")
+    @goal = Goal.where("goal_title LIKE?","%#{word}%")
   else
     @goal = Goal.all
   end

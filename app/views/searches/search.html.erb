@@ -4,23 +4,26 @@
   <table class="table table-hover table-inverse">
    <thead>
      <tr>
-      <th>image</th>
-      <th>name</th>
+      <th>Image</th>
+      <th>Name</th>
       <th colspan="3"></th>
      </tr>
    </thead>
 
    <tbody>
-    <% @customer.each do |customer| %>
+    <% @customers.each do |customer| %>
      <tr>
       <td>
-        <% if @customer.profile_image.attached? %>
-            <%= image_tag customer.profile_image(resize:'50, 50')%>
+        <% if customer.profile_image.attached? %>
+            <%= image_tag customer.profile_image.variant(resize:'50, 50') %>
           <% else %>
-            <%= image_tag 'no_image.jpg'(resize:'50x50') %>
+            <!--表示を確認する、リサイズされているかどうか-->
+            <div class = "no_image.jpg.variant(resize:'50x50')">
+              <%= image_tag 'no_image.jpg' %>
+            </div>
         <% end %>
       </td>
-      <td><%= customer.name%></td>
+      <td><%= customer.name %></td>
       <td><%= link_to "Show", customer, class: "customer_#{customer.id}" %></td>
      </tr>
     <% end %>
@@ -41,14 +44,16 @@
     </thead>
 
     <tbody>
-       <% @goal.each do |goal| %>
+       <% @goals.each do |goal| %>
        <tr>
         <td>
          <%= link_to(goal.customer) do %>
-          <% if @customer.profile_image.attached? %>
-            <%= image_tag customer.profile_image(resize:'50, 50')%>
+          <% if customer.profile_image.attached? %>
+            <%= image_tag customer.profile_image.variant(resize:'50, 50') %>
           <% else %>
-            <%= image_tag 'no_image.jpg'(resize:'50x50') %>
+            <div class = "no_image.jpg.variant(resize:'50x50')">
+              <%= image_tag 'no_image.jpg' %>
+            </div>
           <% end %>
          <% end %>
         </td>
@@ -75,16 +80,18 @@
    </thead>
 
    <tbody>
-    <% @event.each do |event| %>
+    <% @events.each do |event| %>
      <tr>
       <td>
-        <% if @customer.profile_image.attached? %>
-            <%= image_tag customer.profile_image(resize:'50, 50')%>
+        <% if customer.profile_image.attached? %>
+            <%= image_tag customer.profile_image.variant(resize:'50, 50') %>
           <% else %>
-            <%= image_tag 'no_image.jpg'(resize:'50x50') %>
+            <div class = "no_image.jpg.variant(resize:'50x50')">
+              <%= image_tag 'no_image.jpg' %>
+            </div>
         <% end %>
       </td>
-      <td><%= event.event_title%></td>
+      <td><%= event.event_title %></td>
       <td><%= link_to "Show", event, class: "event_#{event.id}" %></td>
      </tr>
     <% end %>

@@ -70,6 +70,7 @@ class Customer < ApplicationRecord
 
   # 画像のタイプ（拡張子）にバリデーションを実装する
   validate :image_type, if: :was_attached?
+  validate :file_size
 
   private
 
@@ -84,11 +85,11 @@ class Customer < ApplicationRecord
     self.profile_image.attached?
   end
 
-
-
-
-
-
-
-
+  def file_size
+    # images.each do |image|
+      if image.blob.byte_size > 2.megabytes
+        errors.add(:profile_image, 'は 2MB 以下のファイルを選択してください')
+      end
+    # end
+  end
 end

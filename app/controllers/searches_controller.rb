@@ -5,11 +5,11 @@ class SearchesController < ApplicationController
     @word = params[:word]
 
     if @range == '1'
-     @customer = Customer.search(search,@word)
+     @customers = Customer.search(search,@word)
     elsif @range == '2'
-     @goal = Goal.search(search,@word)
+     @goals = Goal.search(search,@word)
     else
-     @event = Event.search(search,@word)
+     @events = Event.search(search,@word)
     end
   end
 end

@@ -2,7 +2,7 @@
 <p>
   <h2>User info</h2>
   <% if @customer.profile_image.attached? %>
-    <%= image_tag customer.profile_image(resize:'100, 100')%>
+    <%= image_tag customer.profile_image.variant(resize:'100, 100')%>
   <% else %>
     <%= image_tag 'no_image.jpg'(resize:'100x100') %>
   <% end %>

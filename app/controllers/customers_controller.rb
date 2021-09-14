@@ -40,11 +40,11 @@ class CustomersController < ApplicationController
     @customer = current_customer
     if @customer.update(customer_params)
       flash[:notice] = "You have updated user successfully."
-      # ユーザ詳細ページに飛ばす
+      # ユーザー詳細ページに飛ばす
       redirect_to customer_path(@customer.id)
     else
       @customers = Customer.all
-      # ユーザ編集ページに飛ばす
+      # ユーザー編集ページに飛ばす
       render :edit
     end
   end
