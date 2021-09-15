@@ -3,9 +3,6 @@
   <!--成功時・エラー時メッセージ-->
   <%= render 'goals/message', goal: @goal %>
 
- <!--form_withを利用すると、インスタンス変数を渡すだけで、
- インスタンス変数内のモデルを解読して、
- 投稿したタイトルと内容を代入してくれる-->
  <%= form_with model: @goal, url: goal_path, local: true do |f| %>
  <p>
    <div>Title</div>

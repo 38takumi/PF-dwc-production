@@ -1,0 +1,66 @@
+<!--ユーザー一覧-->
+ <div class="container px-5 px-sm-0">
+　<div class="row">
+
+
+ <div class="col-md-3">
+    <!--ユーザーインフォ-->
+    <%= render 'goals/info', customer: @customer, customers: @customers_relationships  %>
+    <!--New book-->
+    <%= render 'goals/new', goal: @goal %>
+ </div>
+
+   <div class="col-md-8 offset-md-1">
+   <!--Usersの部分　ここから-->
+  <h2>Users</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">image</th>
+          <th scope="col">name</th>
+          <th colspan="3"></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <% @customers.each do |customer| %>
+        <tbody>
+            <thead>
+              <tr>
+                <th scope="col">
+                  <% if customer.profile_image.attached? %>
+                    <%= image_tag customer.profile_image.variant(resize:'50, 50') %>
+                  <% else %>
+                    <div class = "no_image.jpg.variant(resize:'50x50')">
+                      <%= image_tag 'no_image.jpg' %>
+                    </div>
+                  <% end %>
+                  <%#= attachment_image_tag customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
+                </th>
+                <td><%= customer.name %></td>
+                <!--<td colspan="3"></td>-->
+                <td>フォロー数：<%= customer.followings.count %></td>
+                <td>フォロワー数：<%= customer.followers.count %></td>
+                <td>
+                  <!-- フォローボタン -->
+                  <!--ユーザーが現在ユーザーなら表示させない-->
+                  <% if customer != current_customer %>
+                    <% if current_customer.following?(user) %>
+                      <%= link_to "フォロー外す", customer_relationships_path(customer.id), method: :delete %>
+                    <% else %>
+                      <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post %>
+                    <% end %>
+                  <% end %>
+                </td>
+
+                <td><%= link_to "Show",customer_path(customer.id) %></td>
+                <td></td>
+              </tr>
+            </thead>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+
+  </div>
+  </div>

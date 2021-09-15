@@ -7,11 +7,9 @@
 
   <h4>Detail</h4>
   <%= f.text_area :goal_description %>
-  
-  <h4>期限</h4>
-  <%= f.text_area :goal_start %>
-  ~
-  <%= f.text_area :goal_end %>
-  
+
+  <!--<h4>目標月</h4>-->
+  <%#= f.date_select :goal_month, {use_month_numbers:true, discard_day:true} %>
+
   <%= f.submit '作成する', class:"btn btn-success" %>
 <% end %>

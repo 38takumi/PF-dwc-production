@@ -87,7 +87,7 @@ class Customer < ApplicationRecord
 
   def file_size
     # images.each do |image|
-      if image.blob.byte_size > 2.megabytes
+      if profile_image.blob.byte_size > 2.megabytes
         errors.add(:profile_image, 'は 2MB 以下のファイルを選択してください')
       end
     # end

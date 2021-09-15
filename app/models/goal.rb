@@ -9,11 +9,6 @@ class Goal < ApplicationRecord
    # favorites.exists?(customer_id: customer.id)
  end
 
- # def favorited_by?(customer)
- #   # いいねを押したcustomer.idを全て取得、条件に当てはまるかどうか
- #   self.favorites.exists?(customer_id: customer.id)
- # end
-
  # 検索機能　ここから
  def self.search(search, word)
   if search == "forward_match"

@@ -31,8 +31,7 @@
           </button>
           <div class="navbar-collapse collapse" id="navbarNavDropdown" style="">
             <ul class="navbar-nav ml-auto">
-              <!--ホームのボタン　カレンダーにする　pathを変える-->
-              <li><%= link_to 'Home', customer_path(current_customer.id), class:"fas fa-home nav-link text-light"%></li>
+              <li><%= link_to 'カレンダー', events_path, class:"fas fa-home nav-link text-light"%></li>
               <!--ユーザ一覧のボタン-->
               <!--<li><a class="fas fa-users nav-link text-light" href="/customers"> Customers</a></li>-->
               <li><%= link_to " ユーザ一覧", "/customers", class: "fas fa-users nav-link text-light" %></li>
@@ -111,7 +110,7 @@
           <% end %>
         </div>
 
-          <!--本文とか-->
+          <!--本文-->
           <%= yield %>
 
       </main>
@@ -132,7 +131,5 @@
 
 <!--footerここまで-->
 
-    <!--本文とか-->
-    <%#= yield %>
   </body>
 </html>

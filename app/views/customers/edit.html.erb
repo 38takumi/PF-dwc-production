@@ -1,0 +1,34 @@
+<!--ユーザー編集ページ-->
+<p>
+   <h2>User info</h2>
+   <%= form_with model:@customer, local:true do |f| %>
+
+    <!--エラー時のメッセージ-->
+  <% if @customer.errors.any? %>
+      <div id="error_explanation">
+          <h2><%= @customer.errors.count %> prohibited this obj from being saved:</h2>
+          <ul>
+              <% @customer.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+          </ul>
+      </div>
+  <% end %>
+
+   <label for="inputName">Name</label></br>
+   <%= f.text_field :name, autofocus: true, placeholder:"名前", class:"mb-1"%>
+
+ <p>
+    <label for="inputImage">Image</label>
+    <%#= f.attachment_field :profile_image, placeholder: "プロフィール画像", class:"form-control-file mb-1"%>
+    <%= f.file_field :profile_image, placeholder: "プロフィール画像", class:"form-control-file mb-1"%>
+ </p>
+
+
+ <p>Introduction</br>
+    <%= f.text_field :introduction, class:"mb-1" %>
+ </p>
+
+   <%= f.submit "Update User", class:"btn btn-secondary" %>
+   <% end %>
+ </p>

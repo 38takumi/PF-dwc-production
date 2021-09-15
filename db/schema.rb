@@ -75,8 +75,6 @@ ActiveRecord::Schema.define(version: 2021_09_13_135902) do
   create_table "goals", force: :cascade do |t|
     t.string "goal_title", default: "", null: false
     t.text "goal_description", default: "", null: false
-    t.datetime "goal_start", null: false
-    t.datetime "goal_end", null: false
     t.integer "customer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

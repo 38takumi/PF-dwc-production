@@ -26,8 +26,8 @@ class GoalsController < ApplicationController
 
   def create
      # １. データを新規登録するためのインスタンス作成
-    @goal = Goal.new(book_params)
-    @goal.user_id = current_user.id
+    @goal = Goal.new(goal_params)
+    @goal.customer_id = current_customer.id
      # ２. データをデータベースに保存するためのsaveメソッド実行
     if @goal.save
       flash[:notice] = "Goal was successfully created."
@@ -76,9 +76,7 @@ class GoalsController < ApplicationController
     params.require(:goal).permit(:goal_title, :goal_description)
   end
 
-
-   def goal_comments_params
+  def goal_comments_params
     params.require(:goal_comments).permit(:customer_comment)
-   end
-
+  end
 end

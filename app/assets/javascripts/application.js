@@ -23,6 +23,7 @@
 //= require bootstrap-sprockets
 
 
+
 $(function () {
   $('#calendar').fullCalendar({
     selectable: true,

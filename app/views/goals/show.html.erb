@@ -29,7 +29,9 @@
                <% if @customer.profile_image.attached? %>
                  <%= image_tag customer.profile_image(resize:'40, 40')%>
                <% else %>
-                 <%= image_tag 'no_image.jpg'(resize:'40x40') %>
+                <div class = "no_image.jpg.variant(resize:'50x50')">
+                  <%= image_tag 'no_image.jpg' %>
+                </div>
                <% end %>
                <%#= attachment_image_tag @customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
               <% end %>

@@ -1,0 +1,69 @@
+<!--ユーザーページ-->
+ <div class="container px-5 px-sm-0">
+  <div class="row">
+
+   <body>
+   <!--成功時・エラー時メッセージ-->
+    <%= render 'goals/message', goal: @goal %>
+
+   <div class="col-md-3">
+
+
+     <!--ユーザーインフォ-->
+     <%= render 'goals/info', user: @customer, customers: @customers %>
+
+     <!--New book-->
+     <%= render 'goals/new', goal: @goal %>
+
+   </div>
+
+
+   <div class="col-md-8 offset-md-1">
+    <!--Goalsの部分　ここから-->
+
+    <h2>Goals</h2>
+     <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Title</th>
+          <th scope="col">Detail</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <% @goals.each do |goal| %>
+      <tbody>
+       <thead>
+        <tr>
+         <th scope="col">
+          <!--ユーザーページに飛ばす-->
+           <p>
+             <%= link_to customer_path(@customer.id) do %>
+               <%#= attachment_image_tag @customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
+               <% if @customer.profile_image.attached? %>
+                <%= image_tag @customer.profile_image.variant(resize:'50, 50') %>
+               <% else %>
+                <div class = "no_image.jpg.variant(resize:'50x50')">
+                  <%= image_tag 'no_image.jpg' %>
+                </div>
+               <% end %>
+             <% end %>
+           </p>
+           </th>
+           <!--目標の詳細画面に飛ばす-->
+          <td><%= link_to goal.goal_title,goal_path(goal.id) %></td>
+          <td><%= goal.goal_description.truncate(10, separator: ' ') %></td>
+
+        </tr>
+       </thead>
+      </tbody>
+      <% end %>
+     </table>
+    </div>
+
+
+
+   </body>
+  </div>
+ </div>

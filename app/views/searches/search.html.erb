@@ -48,8 +48,8 @@
        <tr>
         <td>
          <%= link_to(goal.customer) do %>
-          <% if customer.profile_image.attached? %>
-            <%= image_tag customer.profile_image.variant(resize:'50, 50') %>
+          <% if goal.customer.profile_image.attached? %>
+            <%= image_tag goal.customer.profile_image.variant(resize:'50, 50') %>
           <% else %>
             <div class = "no_image.jpg.variant(resize:'50x50')">
               <%= image_tag 'no_image.jpg' %>
@@ -83,8 +83,8 @@
     <% @events.each do |event| %>
      <tr>
       <td>
-        <% if customer.profile_image.attached? %>
-            <%= image_tag customer.profile_image.variant(resize:'50, 50') %>
+        <% if event.customer.profile_image.attached? %>
+            <%= image_tag event.customer.profile_image.variant(resize:'50, 50') %>
           <% else %>
             <div class = "no_image.jpg.variant(resize:'50x50')">
               <%= image_tag 'no_image.jpg' %>

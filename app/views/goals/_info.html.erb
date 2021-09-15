@@ -1,10 +1,12 @@
 <!--ユーザーインフォを入れる　ここから-->
 <p>
   <h2>User info</h2>
-  <% if @customer.profile_image.attached? %>
+  <% if customer.profile_image.attached? %>
     <%= image_tag customer.profile_image.variant(resize:'100, 100')%>
   <% else %>
-    <%= image_tag 'no_image.jpg'(resize:'100x100') %>
+    <div class = "no_image.jpg.variant(resize:'100x100')">
+      <%= image_tag 'no_image.jpg' %>
+    </div>
   <% end %>
 </p>
    <table class="table">
@@ -22,20 +24,20 @@
 
 <!-- User infoのところのfollowsとfollowersのところの
 数字がリンクになっていてそこからページ遷移する -->
-     <!-- <tr>
+      <tr>
       <th>
-        follows   <%#= link_to customer_followings_path(customer.id) do %>
-          <%#= customer.followings.count %>
-        <%# end %>
+        follows   <%= link_to customer_followings_path(customer.id) do %>
+          <%= customer.followings.count %>
+        <% end %>
       </th>
      </tr>
      <tr>
       <th>
-        followers  <%#= link_to  customer_followers_path(customer.id) do %>
-          <%#= customer.followers.count %>
-        <%# end %>
+        followers  <%= link_to  customer_followers_path(customer.id) do %>
+          <%= customer.followers.count %>
+        <% end %>
       </th>
-     </tr> -->
+     </tr>
 
 
     </tbody>
@@ -43,17 +45,17 @@
 
 <!-- フォローボタン -->
 <!--ユーザが現在ユーザなら表示させない-->
-<%# if customer != current_customer %>
-  <%# if current_customer.following?(customer) %>
-    <%#= link_to customer_relationships_path(customer.id), method: :delete do %>
-        <!-- <button type="button" class="btn btn-success mb-4">フォローを外す</button> -->
-    <%# end %>
-  <%# else %>
-    <%#= link_to customer_relationships_path(customer.id), method: :post do %>
-        <!-- <button type="button" class="btn btn-info mb-4">フォローする</button> -->
-    <%# end %>
-  <%# end %>
-<%# end %>
+<% if customer != current_customer %>
+  <% if current_customer.following?(customer) %>
+    <%= link_to customer_relationships_path(customer.id), method: :delete do %>
+      <button type="button" class="btn btn-success mb-4">フォローを外す</button>
+    <% end %>
+  <% else %>
+    <%= link_to customer_relationships_path(customer.id), method: :post do %>
+      <button type="button" class="btn btn-info mb-4">フォローする</button>
+    <% end %>
+  <% end %>
+<% end %>
 
 
  <!--編集用ボタン-->
