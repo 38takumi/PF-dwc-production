@@ -6,7 +6,7 @@
  <div class="col-md-3">
     <!--ユーザーインフォ-->
     <%= render 'goals/info', customer: @customer, customers: @customers_relationships  %>
-    <!--New book-->
+    <!--新規目標-->
     <%= render 'goals/new', goal: @goal %>
  </div>
 
@@ -28,12 +28,12 @@
             <thead>
               <tr>
                 <th scope="col">
-                  <% if customer.profile_image.attached? %>
-                    <%= image_tag customer.profile_image.variant(resize:'50, 50') %>
+                  <% if @customer.profile_image.attached? %>
+                    <%= image_tag @customer.profile_image.variant(resize:'50x50').processed %>
                   <% else %>
-                    <div class = "no_image.jpg.variant(resize:'50x50')">
-                      <%= image_tag 'no_image.jpg' %>
-                    </div>
+                    <!--<div class = "no_image.jpg.variant(resize:'50x50')">-->
+                      <%= image_tag 'no_image.jpg', size:'50x50' %>
+                    <!--</div>-->
                   <% end %>
                   <%#= attachment_image_tag customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
                 </th>
@@ -45,7 +45,7 @@
                   <!-- フォローボタン -->
                   <!--ユーザーが現在ユーザーなら表示させない-->
                   <% if customer != current_customer %>
-                    <% if current_customer.following?(user) %>
+                    <% if current_customer.following?(customer) %>
                       <%= link_to "フォロー外す", customer_relationships_path(customer.id), method: :delete %>
                     <% else %>
                       <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post %>

@@ -70,7 +70,7 @@ class Customer < ApplicationRecord
 
   # 画像のタイプ（拡張子）にバリデーションを実装する
   validate :image_type, if: :was_attached?
-  validate :file_size
+  validate :file_size, if: :was_attached?
 
   private
 

@@ -44,9 +44,7 @@
                <% if @customer.profile_image.attached? %>
                 <%= image_tag @customer.profile_image.variant(resize:'50, 50') %>
                <% else %>
-                <div class = "no_image.jpg.variant(resize:'50x50')">
-                  <%= image_tag 'no_image.jpg' %>
-                </div>
+                  <%= image_tag 'no_image.jpg', size:'50x50' %>
                <% end %>
              <% end %>
            </p>

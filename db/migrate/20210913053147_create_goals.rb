@@ -4,6 +4,8 @@ class CreateGoals < ActiveRecord::Migration[5.2]
       t.string      :goal_title,        null: false, default: ""
       t.text        :goal_description,  null: false, default: ""
       # t.datetime    :goal_month,        null: false, default: ""
+      #t.datetime:goal_startnull, default: ""
+      #t.datetime:goal_endnull, default: ""
       t.integer     :customer_id,       null: false, default: ""
 
       t.timestamps
