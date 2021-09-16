@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_135902) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name", default: "", null: false
+    t.string "name", null: false
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 2021_09_13_135902) do
   end
 
   create_table "goals", force: :cascade do |t|
-    t.string "goal_title", default: "", null: false
-    t.text "goal_description", default: "", null: false
+    t.string "goal_title", null: false
+    t.text "goal_description", null: false
     t.integer "customer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
