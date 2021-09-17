@@ -1,0 +1,21 @@
+<%= form_with(model: @event, url: event_path(@event.id), method: :patch, remote: true) do |f| %>
+
+  <%= f.label :event_title, "予定", class: "form-control-label"%>
+  <%= f.text_field :event_title, class: "form-control fix-event-title mb-1", placeholder: "見出し"%>
+
+  <%= f.label :event_description, "メモ", class: "form-control-label"%>
+  <%= f.text_field :event_description, class: "form-control fix-event-description mb-1", placeholder: "内容"%>
+
+  <%= f.label :event_start, "開始時間", class: "form-control-label"%>
+  <%= f.text_field :event_start, class: "form-control fix-event-start mb-1", placeholder: "半角英数で入力して下さい"%>
+
+  <%= f.label :event_end, "終了時間", class: "form-control-label"%>
+  <%= f.text_field :event_end, class: "form-control fix-event-end mb-1", placeholder: "半角英数で入力して下さい"%>
+
+  <%= f.submit "入力完了", class: "btn btn-sm btn-primary mb-5" %>
+
+<% end %>
+
+<%= link_to "Show",event_path(@event.id), class:"btn btn-sm btn-success" %>
+|
+<%= link_to "Back",events_path, class:"btn btn-sm btn-secondary" %>

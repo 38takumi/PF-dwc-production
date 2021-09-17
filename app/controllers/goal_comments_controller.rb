@@ -4,7 +4,7 @@ class GoalCommentsController < ApplicationController
 
 
   def create
-    @goal = Book.find(params[:goal_id])
+    @goal = Goal.find(params[:goal_id])
     # 空のコメントを作る
     @goal_comment = current_customer.goal_comments.new(goal_comment_params)
     @goal_comment.goal_id = @goal.id

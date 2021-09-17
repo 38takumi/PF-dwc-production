@@ -1,0 +1,17 @@
+<%= form_with(model: @event, url: events_path, method: :post, remote: true) do |f| %>
+  <%= f.label :event_title, "予定", class: "form-control-label"%>
+  <%= f.text_field :event_title, class: "form-control mb-1", placeholder: "見出し"%>
+
+  <%= f.label :event_description, "メモ", class: "form-control-label"%>
+  <%= f.text_field :event_description, class: "form-control mb-1", placeholder: "内容"%>
+
+  <%= f.label :event_start, "開始時間", class: "form-control-label"%>
+  <%= f.date_select :event_start, use_month_numbers:true, class: "form-control input-start mb-1", placeholder: "半角英数で入力して下さい" %>
+  <%#= f.text_field :event_start, class: "form-control input-start", placeholder: "半角英数で入力して下さい"%>
+<br>
+  <%= f.label :event_end, "終了時間", class: "form-control-label"%>
+  <%= f.date_select :event_end, use_month_numbers:true, class: "form-control input-end mb-1", placeholder: "半角英数で入力して下さい" %>
+  <%#= f.text_field :event_end, class: "form-control input-end", placeholder: "半角英数で入力して下さい"%>
+<br>
+  <%= f.submit "入力完了", class: "btn btn-sm btn-primary" %>
+<% end %>

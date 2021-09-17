@@ -1,7 +1,14 @@
 class EventsController < ApplicationController
+  before_action :authenticate_customer!
+
   def index
     @event = Event.new
     @events = Event.all
+    # @event_show = Event.find(params[:id])
+  end
+
+  def new
+    @event = Event.new
   end
 
   def create
@@ -10,12 +17,16 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:id])
+    @customer = @event.customer
   end
 
   def edit
+    @event = Event.find(params[:id])
   end
 
   def update
+    @event = Event.find(params[:id])
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -28,6 +39,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }

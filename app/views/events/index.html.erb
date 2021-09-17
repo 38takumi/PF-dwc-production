@@ -1,5 +1,6 @@
-
+<%= link_to "New Event", new_event_path, class: "btn btn-sm btn-primary" %>
 <div id="calendar" class="main-visual"></div>
+
 
 <!--入力のポップ　ここから-->
 <div class="modal" id="new_event" tabindex="-1" role="dialog">
@@ -45,7 +46,7 @@
             </div>
             <!--<p>時間は半角英数で「年/月/日/時間:分」で入力して下さい。</p>-->
             <div class="modal-footer actions">
-              <%= f.submit "入力完了", class: "btn btn-primary" %>
+              <%= f.submit "入力完了", class: "btn btn-sm btn-primary" %>
             </div>
           <% end %>
         </div>

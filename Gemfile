@@ -76,7 +76,8 @@ gem 'kaminari','~> 1.2.1'
 gem 'pry-byebug'
 # viewでは<% binding.pry %>、通常はbinding.pry
 
-
+# バッチ処理
+gem 'whenever', require: false
 
 
 

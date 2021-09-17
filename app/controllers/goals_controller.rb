@@ -12,7 +12,7 @@ class GoalsController < ApplicationController
   def show
      @goal = Goal.find(params[:id])
      # @goalのユーザ
-     @goal = @goal.customer
+     @customer = @goal.customer
      # follow,follower数用　いらないかも
     # @customers = Customer.find(params[:id])
      @goal_new = Goal.new

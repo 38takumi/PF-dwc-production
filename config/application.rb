@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module PFDwcProduction
   class Application < Rails::Application
+    # バッチ処理用
+    config.paths.add 'lib', eager_load: true
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

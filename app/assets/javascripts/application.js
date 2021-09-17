@@ -57,7 +57,6 @@ $(function () {
         week: '週',
         day: '日'
     },
-    // Drag & Drop & Resize
     editable: true,
     //イベントの時間表示を２４時間に
     timeFormat: "HH:mm",
@@ -66,6 +65,11 @@ $(function () {
     color: 'yellow',
     textColor: 'black',
 
+    eventLimit: true, // イベント増えた時にリンクボタン表示
+    slotEventOverlap: true, // イベントの見た目を重ねて表示
+    selectable: true, // カレンダー空白部分のドラッグ可能
+    selectHelper: true, // これをtrueにすると範囲設定できます
+    selectMinDistance: 1 ,
 
     dayClick: function(date) {
     //   alert('clicked ' + date.format());
@@ -75,7 +79,29 @@ $(function () {
       $('#new_event').modal('show');
       $(".input-start").val(moment(startDate).format("YYYY-MM-DD HH:mm"));
       $(".input-end").val(moment(endDate).format("YYYY-MM-DD HH:mm"));
-    }
+
+      // $('#new_fix_event_tab').modal('show');
+      // $('fix-event-tab').modal('show');
+      // $(".fix-event-title").html("event.event_title");
+      // $(".fix-event-description").html("event.event_description");
+      // $(".fix-event-start").html("event.event_start");
+      // $(".fix-event-end").html("event.event_end");
+
+
+
+    },
+    // dayClick: function(event, el, jsEvent, view) {
+    //   $('fix-event-tab').modal('show');
+    //   $(".fix-event-title").html("event.event_title");
+    //   $(".fix-event-description").html("event.event_description");
+    //   $(".fix-event-start").html("event.event_start");
+    //   $(".fix-event-end").html("event.event_end");
+    // },
+
+
+
 
   });
 });
+
+
