@@ -35,6 +35,7 @@ https://docs.google.com/spreadsheets/d/1qKBYtVMIVxXSkwdkrU3YAEh1cnJgIWdO2deErbZF
 - フレームワーク：Ruby on Rails,Bootstrap,Flexbox
 - JSライブラリ：jQuery
 - IDE：Cloud9
+- デプロイ自動化:GitHub Actions
 
 
 ## 使用素材
