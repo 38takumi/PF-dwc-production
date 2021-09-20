@@ -15,7 +15,7 @@
      <tr>
       <td>
         <% if customer.profile_image.attached? %>
-            <%= image_tag customer.profile_image.variant(resize:'50, 50') %>
+            <%= image_tag customer.profile_image.variant(resize:'50x50') %>
         <% else %>
             <%= image_tag 'no_image.jpg', size:'50x50' %>
         <% end %>
@@ -47,7 +47,7 @@
         <td>
          <%= link_to(goal.customer) do %>
           <% if goal.customer.profile_image.attached? %>
-            <%= image_tag goal.customer.profile_image.variant(resize:'50, 50') %>
+            <%= image_tag goal.customer.profile_image.variant(resize:'50x50') %>
           <% else %>
               <%= image_tag 'no_image.jpg', size:'50x50' %>
           <% end %>
@@ -81,7 +81,7 @@
      <tr>
       <td>
         <% if event.customer.profile_image.attached? %>
-            <%= image_tag event.customer.profile_image.variant(resize:'50, 50') %>
+            <%= image_tag event.customer.profile_image.variant(resize:'50x50') %>
         <% else %>
             <%= image_tag 'no_image.jpg', size:'50x50' %>
         <% end %>

@@ -58,9 +58,9 @@
 
  <!--編集用ボタン-->
    <div class="row">
-   <%# if customer.id == current_customer.id %>
-    <%= link_to edit_customer_path(@customer.id), class: "btn btn-outline-secondary btn-block" do %>
+   <% if @customer.id == current_customer.id %>
+    <%= link_to edit_customer_path(@customer.id), class: "btn btn-outline-secondary btn-block mb-4" do %>
      <i class="fas fa-user-cog"></i>
     <% end %>
-   <%# end %>
+   <% end %>
    </div>

@@ -2,6 +2,7 @@
     <tbody>
      <!--この目標に対して入力されたコメントを抽出することを繰り返す-->
      <% goal.goal_comments.each do|goal_comment| %>
+      <% goal_comment_customer = goal_comment.customer %>
         <tr>
 
           <th scope="col"></th>
@@ -9,26 +10,26 @@
            <th scope="col">
             <!--ユーザページに飛ばす画像と名前のところ両方とも-->
             <p>
-             <%= link_to customer_path(goal_comment.customer.id) do %>
-              <% if @customer.profile_image.attached? %>
-                <%= image_tag goal_comment.customer.profile_image(resize:'40x40')%>
+             <%= link_to customer_path(goal_comment_customer.id) do %>
+              <% if goal_comment_customer.profile_image.attached? %>
+                <%= image_tag goal_comment_customer.profile_image.variant(resize:'40x40')%>
               <% else %>
                 <%= image_tag 'no_image.jpg', size:'40x40' %>
               <% end %>
-              <%#= attachment_image_tag goal_comment.customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
+              <%#= attachment_image_tag customer_comment.comments_customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
              <% end %>
             </p>
             <!--ユーザページに飛ばす画像と名前のところ両方とも-->
-            <p><%= link_to goal_comment.customer.name,customer_path(goal_comment.customer.id) %></p>
+            <p><%= link_to goal_comment_customer.name,customer_path(goal_comment_customer.id) %></p>
            </th>
              <!--コメント-->
              <th scope="col">
               <%= goal_comment.customer_comment %>
              </th>
 
-             <% if current_customer == goal_comment.customer %>
+             <% if current_customer == goal_comment_customer %>
               <th scope="col">
-               <%= link_to "Destroy", goal_goal_comment_path(goal_comment.goal_id, goal_comment.id), method: :delete, class:"btn btn-sm btn-danger" %>
+               <%= link_to "Destroy", goal_goal_comment_path(goal.id, goal_comment_customer.id), method: :delete, class:"btn btn-sm btn-danger" %>
               </th>
               <th></th>
              <% end %>

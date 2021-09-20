@@ -9,8 +9,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
-
     <!-- Bootstrap CSS -->
     <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">-->
     <script src="https://kit.fontawesome.com/*******.js" crossorigin="anonymous"></script>
@@ -24,7 +22,6 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <!--<div class="row">-->
-          <!--<a class="navbar-brand" href="/"><span>Schedule Books</span></a>-->
           <%= link_to "Schedule Books", "/", class: "navbar-brand" %>
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,13 +30,10 @@
             <ul class="navbar-nav ml-auto">
               <li><%= link_to 'カレンダー', events_path, class:"fas fa-home nav-link text-light"%></li>
               <!--ユーザ一覧のボタン-->
-              <!--<li><a class="fas fa-users nav-link text-light" href="/customers"> Customers</a></li>-->
               <li><%= link_to " ユーザ一覧", "/customers", class: "fas fa-users nav-link text-light" %></li>
               <!--book一覧のボタン-->
-              <!--<li><a class="fas fa-book-open nav-link text-light" href="/goals"> Goals</a></li>-->
               <li><%= link_to " 目標", "/goals", class: "fas fa-book-open nav-link text-light" %></li>
               <!--ログアウトのボタン-->
-              <!--<li><a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/customers/sign_out"> logout</a></li>-->
               <li><%= link_to " logout", "/customers/sign_out", class: "fas fa-sign-out-alt nav-link text-light", method: :delete %></li>
             </ul>
           </div>
@@ -54,22 +48,17 @@
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container">
-            <!--<a class="navbar-brand" href="/"><span>Bookers</span></a>-->
             <%= link_to "Schedule Books", "/", class: "navbar-brand" %>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
-                <!--<li><a class="fas fa-home nav-link text-light" href="/"> Home</a></li>-->
                 <li><%= link_to 'Home', "/", class:"fas fa-home nav-link text-light"%></li>
-                <!--<li><a class="fas fa-link nav-link text-light" href="/home/about"> About</a></li>-->
-                <li><%= link_to " About", "/home/about", class: "fas fa-link nav-link text-light" %></li>
+                <li><%= link_to " About", "/homes/about", class: "fas fa-link nav-link text-light" %></li>
                 <!--新規登録-->
-                <!--<li><a class="fas fa-user-plus nav-link text-light" href="/users/sign_up"> sign up</a></li>-->
                 <li><%= link_to " sign up", "/customers/sign_up", class: "fas fa-user-plus nav-link text-light" %></li>
                 <!--ログイン-->
-                <!--<li><a class="fas fa-sign-in-alt nav-link text-light" href="/users/sign_in"> login</a></li>-->
                 <li><%= link_to " login", "/customers/sign_in", class: "fas fa-sign-in-alt nav-link text-light" %></li>
               </ul>
             </div>
@@ -80,42 +69,29 @@
     <% end %>
 
 
-    <div class="container-fluid ">
-    <div class="row">
-    <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
-      <main>
-        <div class="col-md-8 offset-md-4">
-          <!--検索機能-->
-          <% if customer_signed_in? %>
-          <!--<table class="table" >-->
-            <!--<tbody>-->
-             <%= form_tag(search_path, method: :get) do %>
-              <!--<td class:"mt-2">-->
-              <!--<div class:"mt-2">-->
-                <%= text_field_tag (:word), "", class:"mt-2" %>
-              <!--</div>-->
-              <!--</td>-->
-              <!--<td>-->
-                <%= select_tag 'range' ,options_for_select([['ユーザー', '1'], ['目標', '2'], ['予定', '3']]), class:"mt-2" %>
-              <!--</td>-->
-              <!--<td>-->
-                <%= select_tag 'search', options_for_select([["前方一致","forward_match"], ["後方一致","backward_match"], ["完全一致","perfect_match"], ["部分一致","partial_match"]]), class:"mt-2" %>
-              <!--</td>-->
-              <!--<td>-->
-                <%= submit_tag "検索", class:"mt-2" %>
-              <!--</td>-->
-             <% end %>
-            <!--</tbody>-->
-          <!--</table>-->
-          <% end %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
+          <main>
+            <div class="col-md-8 offset-md-4">
+              <!--検索機能 ここから-->
+              <% if customer_signed_in? %>
+                 <%= form_tag(search_path, method: :get) do %>
+                    <%= text_field_tag (:word), "", class:"mt-2" %>
+                    <%= select_tag 'range' ,options_for_select([['ユーザー', '1'], ['目標', '2'], ['予定', '3']]), class:"mt-2" %>
+                    <%= select_tag 'search', options_for_select([["前方一致","forward_match"], ["後方一致","backward_match"], ["完全一致","perfect_match"], ["部分一致","partial_match"]]), class:"mt-2" %>
+                    <%= submit_tag "検索", class:"mt-2" %>
+                 <% end %>
+              <% end %>
+              <!--検索機能 ここまで-->
+            </div>
+
+              <!--本文-->
+              <%= yield %>
+
+          </main>
         </div>
-
-          <!--本文-->
-          <%= yield %>
-
-      </main>
-    </div>
-    </div>
+      </div>
     </div>
 
     <!--footerここから-->
@@ -128,8 +104,7 @@
         </div>
       </div>
     </footer>
-
-<!--footerここまで-->
+    <!--footerここまで-->
 
   </body>
 </html>

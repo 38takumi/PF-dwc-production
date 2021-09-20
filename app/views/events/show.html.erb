@@ -1,25 +1,25 @@
 <%= "予定" %>
-<div class: "form-control fix-event-title">
+<div class: "form-control fix-event-title mb-1">
 <%= @event.event_title %>
 </div>
 
 <%= "メモ"%>
-<div class: "form-control fix-event-description">
+<div class: "form-control fix-event-description mb-1">
 <%= @event.event_description %>
 </div>
 
 <%= "開始時間"%>
-<div class: "form-control fix-event-start">
+<div class: "form-control fix-event-start mb-1">
 <%= @event.event_start %>
 </div>
 
 <%= "終了時間" %>
-<div class: "form-control fix-event-end">
+<div class: "form-control fix-event-end mb-1">
 <%= @event.event_end %>
 </div>
 
 <% if @customer.id == current_customer.id %>
-<%= link_to "Edit",edit_event_path(@event.id), class:"btn btn-sm btn-success" %>
+<%= link_to "Edit",edit_event_path(@event.id), class:"btn btn-sm btn-success mb-1" %>
 |
-<%= link_to "Destroy", event_path(@event.id), method: :delete, class:"btn btn-sm btn-danger" %>
+<%= link_to "Destroy", event_path(@event.id), method: :delete, class:"btn btn-sm btn-danger mb-1" %>
 <% end %>

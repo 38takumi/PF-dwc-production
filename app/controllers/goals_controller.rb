@@ -2,22 +2,20 @@ class GoalsController < ApplicationController
   before_action :correct_goal,only: [:edit,:update]
 
   def index
+    # ページネーション無い時用
     # @goals = Goal.all
     @goals = Goal.page(params[:page]).reverse_order
     @customer = current_customer
-    # follow,follower数用　いらないかも
-    # @customers = @customer.followings
     @goal = Goal.new
   end
 
   def show
-     @goal = Goal.find(params[:id])
-     # @goalのユーザ
-     @customer = @goal.customer
-     # follow,follower数用　いらないかも
-    # @customers = Customer.find(params[:id])
-     @goal_new = Goal.new
-     @goal_comment = GoalComment.new
+    @goal = Goal.find(params[:id])
+    @customer = @goal.customer
+    @goal_new = Goal.new
+    @goal_comment = GoalComment.new
+    # @goal_comments = GoalComment.find(params[:id])
+    # @comments_customer = @goal_comments.customer
   end
 
   # def new
@@ -32,7 +30,7 @@ class GoalsController < ApplicationController
      # ２. データをデータベースに保存するためのsaveメソッド実行
     if @goal.save
       flash[:notice] = "Goal was successfully created."
-       # ３. ブック詳細画面へリダイレクト
+      # ３. ブック詳細画面へリダイレクト
       redirect_to goal_path(@goal.id)
     else
       @goals = Goal.all
@@ -64,12 +62,12 @@ class GoalsController < ApplicationController
     redirect_to goals_path
   end
 
-   def correct_goal
-        @goal = Goal.find(params[:id])
+  def correct_goal
+      @goal = Goal.find(params[:id])
     unless @goal.customer.id == current_customer.id
       redirect_to goals_path
     end
-   end
+  end
 
 
   private

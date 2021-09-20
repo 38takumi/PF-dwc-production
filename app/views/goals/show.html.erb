@@ -27,7 +27,7 @@
              <p>
               <%= link_to customer_path(@customer.id) do %>
                <% if @customer.profile_image.attached? %>
-                 <%= image_tag customer.profile_image(resize:'40, 40')%>
+                 <%= image_tag @customer.profile_image.variant(resize:'50x50')%>
                <% else %>
                   <%= image_tag 'no_image.jpg', size:'50x50' %>
                <% end %>
@@ -43,14 +43,13 @@
             <th scope="col"><%= @goal.goal_description %></th>
 
             <% if @customer.id == current_customer.id %>
-
-            <th scope="col"><%= link_to "Edit",edit_goal_path(@goal.id), class:"btn btn-sm btn-success" %></th>
-            <th scope="col"><%= link_to "Destroy", goal_path(@goal.id), method: :delete, class:"btn btn-sm btn-danger" %></th>
+             <th scope="col"><%= link_to "Edit",edit_goal_path(@goal.id), class:"btn btn-sm btn-success" %></th>
+             <th scope="col"><%= link_to "Destroy", goal_path(@goal.id), method: :delete, class:"btn btn-sm btn-danger" %></th>
             <% end %>
 
             <!--いいね機能-->
             <th>
-             <!--今投稿されている目標の中で現在のユーザはいいねしていますか？-->
+             <!--今投稿されている目標に現在のユーザはいいねしているかどうか？-->
              <% if @goal.favorited_by?(current_customer) %>
              <%# if Favorite.find_by(user_id: current_user.id, goal_id: goal.id) %>
                <p>
@@ -71,11 +70,9 @@
                  <% end %>
                </p>
              <% end %>
-
             </th>
 
             <th scope="col">コメント数：<%= @goal.goal_comments.count %></th>
-
 
           </tr>
       </tbody>
