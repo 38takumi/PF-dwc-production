@@ -2,7 +2,8 @@ class GoalsController < ApplicationController
   before_action :correct_goal,only: [:edit,:update]
 
   def index
-    @goals = Goal.all
+    # @goals = Goal.all
+    @goals = Goal.page(params[:page]).reverse_order
     @customer = current_customer
     # follow,follower数用　いらないかも
     # @customers = @customer.followings

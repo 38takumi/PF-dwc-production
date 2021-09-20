@@ -13,11 +13,9 @@
         <tr>
           <th scope="col">
             <% if customer.profile_image.attached? %>
-              <%= image_tag customer.profile_image(resize:'40, 40')%>
+              <%= image_tag customer.profile_image.variant(resize:'40x40')%>
             <% else %>
-              <div class = "no_image.jpg.variant(resize:'40x40')">
-                <%= image_tag 'no_image.jpg' %>
-              </div>
+              <%= image_tag 'no_image.jpg', size:'40x40' %>
             <% end %>
             <%#= attachment_image_tag customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
           </th>

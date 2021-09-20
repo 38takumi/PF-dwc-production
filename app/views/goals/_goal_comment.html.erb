@@ -11,7 +11,7 @@
             <p>
              <%= link_to customer_path(goal_comment.customer.id) do %>
               <% if @customer.profile_image.attached? %>
-                <%= image_tag goal_comment.customer.profile_image(resize:'40, 40')%>
+                <%= image_tag goal_comment.customer.profile_image(resize:'40x40')%>
               <% else %>
                 <%= image_tag 'no_image.jpg', size:'40x40' %>
               <% end %>

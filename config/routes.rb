@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   devise_for :customers
 
   resources :events
+  get 'events/btn_new' => 'events#btn_new'
+  post 'events' => 'events#btn_create'
 
   resources :goals do
     resources :goal_comments, only: [:create, :destroy]

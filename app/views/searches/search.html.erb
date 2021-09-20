@@ -24,6 +24,7 @@
       <td><%= link_to "Show", customer, class: "customer_#{customer.id}" %></td>
      </tr>
     <% end %>
+    <%= paginate @customers %>
    </tbody>
   </table>
 
@@ -58,6 +59,7 @@
         <td><%= goal.goal_description.truncate(10, separator: ' ') %></td>
        </tr>
        <% end %>
+       <%= paginate @goals %>
     </tbody>
   </table>
 
@@ -88,6 +90,7 @@
       <td><%= link_to "Show", event, class: "event_#{event.id}" %></td>
      </tr>
     <% end %>
+    <%= paginate @events %>
    </tbody>
   </table>
 <% end %>

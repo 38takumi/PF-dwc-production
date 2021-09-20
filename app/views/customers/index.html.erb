@@ -5,7 +5,7 @@
 
  <div class="col-md-3">
     <!--ユーザーインフォ-->
-    <%= render 'goals/info', customer: @customer, customers: @customers_relationships  %>
+    <%= render 'goals/info', customer: @customer  %>
     <!--新規目標-->
     <%= render 'goals/new', goal: @goal %>
  </div>
@@ -31,9 +31,7 @@
                   <% if @customer.profile_image.attached? %>
                     <%= image_tag @customer.profile_image.variant(resize:'50x50').processed %>
                   <% else %>
-                    <!--<div class = "no_image.jpg.variant(resize:'50x50')">-->
                       <%= image_tag 'no_image.jpg', size:'50x50' %>
-                    <!--</div>-->
                   <% end %>
                   <%#= attachment_image_tag customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
                 </th>
@@ -59,6 +57,7 @@
             </thead>
         </tbody>
       <% end %>
+      <%= paginate @customers %>
     </table>
   </div>
 

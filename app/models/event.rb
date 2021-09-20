@@ -8,7 +8,8 @@ class Event < ApplicationRecord
   elsif search == "backward_match"
     @event = Event.where("event_title LIKE?","%#{word}")
   elsif search == "perfect_match"
-    @event = Event.where("#{word}")
+    # @event = Event.where("#{word}")
+    @event = Event.where(event_title: word)
   elsif search == "partial_match"
     @event = Event.where("event_title LIKE?","%#{word}%")
   else

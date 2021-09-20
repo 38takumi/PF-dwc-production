@@ -2,9 +2,11 @@ class CustomersController < ApplicationController
   before_action :correct_customer,only: [:edit,:update]
 
   def index
-    @customers = Customer.all
+    # @customers = Customer.all
+    @customers = Customer.page(params[:page]).reverse_order
     @customer = current_customer
-    @goals = Goal.all
+    # 次の１行は多分使っていないのでテストしてから消す
+    # @goals = Goal.all
     @goal = Goal.new
   end
 

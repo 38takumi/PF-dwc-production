@@ -32,8 +32,8 @@
                 <th scope="row">
                   <!--ユーザページに飛ばす-->
                   <%= link_to customer_path(goal.customer) do %>
-                    <% if @customer.profile_image.attached? %>
-                      <%= image_tag customer.profile_image(resize:'40, 40')%>
+                    <% if goal.customer.profile_image.attached? %>
+                      <%= image_tag goal.customer.profile_image.variant(resize:'100x100')%>
                     <% else %>
                         <%= image_tag 'no_image.jpg', size:'40x40' %>
                     <% end %>
@@ -72,6 +72,7 @@
               </tr>
               </tbody>
             <% end %>
+            <%= paginate @goals %>
           </table>
 
        </div>

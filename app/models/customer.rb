@@ -44,6 +44,7 @@ class Customer < ApplicationRecord
       @customer = Customer.where("name LIKE?","%#{word}")
     elsif search == "perfect_match"
       @customer = Customer.where("#{word}")
+      @customer = Customer.where(name: word)
     elsif search == "partial_match"
       @customer = Customer.where("name LIKE?","%#{word}%")
     else

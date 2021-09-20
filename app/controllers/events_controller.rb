@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @event = Event.new
-    @events = Event.all
+    @events = Event.where(customer_id: current_customer.id)
     # @event_show = Event.find(params[:id])
   end
 
@@ -15,6 +15,17 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.save
   end
+
+  # def btn_new
+  #   @event = Event.new
+  # end
+
+  # def btn_create
+  #   @event = Event.new(event_params)
+  #   @event.save
+  #   @events = Event.all
+  #   redirect_to action: :show
+  # end
 
   def show
     @event = Event.find(params[:id])

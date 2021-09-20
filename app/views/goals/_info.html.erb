@@ -2,9 +2,10 @@
 <p>
   <h2>User info</h2>
   <% if @customer.profile_image.attached? %>
-    <%= image_tag customer.profile_image.variant(resize:'100, 100')%>
+    <%= image_tag @customer.profile_image.variant(resize:'100x100')%>
+    <%#= image_tag @customer.profile_image, size:'100x100')%>
   <% else %>
-      <%= image_tag 'no_image.jpg', size:'50x50' %>
+      <%= image_tag 'no_image.jpg', size:'100x100' %>
   <% end %>
 </p>
    <table class="table">
@@ -20,8 +21,7 @@
  <!--ユーザーインフォを入れる　ここまで-->
 
 
-<!-- User infoのところのfollowsとfollowersのところの
-数字がリンクになっていてそこからページ遷移する -->
+<!-- followsとfollowers ここから  -->
       <tr>
       <th>
         follows   <%= link_to customer_followings_path(@customer.id) do %>
@@ -36,7 +36,7 @@
         <% end %>
       </th>
      </tr>
-
+<!-- followsとfollowers ここまで  -->
 
     </tbody>
    </table>

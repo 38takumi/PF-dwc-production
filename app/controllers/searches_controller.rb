@@ -6,10 +6,14 @@ class SearchesController < ApplicationController
 
     if @range == '1'
      @customers = Customer.search(search,@word)
+     @customers = @customers.page(params[:page])
     elsif @range == '2'
      @goals = Goal.search(search,@word)
+     @goals = @goals.page(params[:page])
     else
-     @events = Event.search(search,@word)
+     @events = current_customer.events.search(search,@word)
+    # @events = Event.search(search,@word)
+     @events = @events.page(params[:page])
     end
   end
 end

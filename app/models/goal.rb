@@ -16,7 +16,8 @@ class Goal < ApplicationRecord
   elsif search == "backward_match"
     @goal = Goal.where("goal_title LIKE?","%#{word}")
   elsif search == "perfect_match"
-    @goal = Goal.where("#{word}")
+    # @goal = Goal.where("#{word}")
+    @goal = Goal.where(goal_title: word)
   elsif search == "partial_match"
     @goal = Goal.where("goal_title LIKE?","%#{word}%")
   else
