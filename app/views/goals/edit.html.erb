@@ -21,9 +21,7 @@
  <!--</p>-->
 
  <div class="actions">
-     <!--<input type="submit" name="commit" value="Update Goal" data-disable-with="Update Goal">-->
-     <%#= link_to "Update Goal",goal_path(@goal.id), class:"btn btn-success mb-1" %>
-      <%= f.submit "Update Goal", class:"btn btn-success mb-1" %>
+  <%= f.submit "Update Goal", class:"btn btn-success mb-1" %>
  </div>
  <% end %>
  <%= link_to "Show",goal_path(@goal.id) %>

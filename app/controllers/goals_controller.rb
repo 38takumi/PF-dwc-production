@@ -30,7 +30,7 @@ class GoalsController < ApplicationController
      # ２. データをデータベースに保存するためのsaveメソッド実行
     if @goal.save
       flash[:notice] = "Goal was successfully created."
-      # ３. ブック詳細画面へリダイレクト
+      # ３. 目標詳細画面へリダイレクト
       redirect_to goal_path(@goal.id)
     else
       @goals = Goal.all
