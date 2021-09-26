@@ -1,96 +1,98 @@
-<!--customers一覧-->
-<% if @range == '1' %>
-  <h2>Users search for "<%= @word %>"</h2>
-  <table class="table table-hover table-inverse">
-   <thead>
-     <tr>
-      <th>Image</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-     </tr>
-   </thead>
+<div class="title-box-after-login">
+  <!--customers一覧-->
+  <% if @range == '1' %>
+    <h2>Users search for "<%= @word %>"</h2>
+    <table class="table table-hover table-inverse">
+     <thead>
+       <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th colspan="3"></th>
+       </tr>
+     </thead>
 
-   <tbody>
-    <% @customers.each do |customer| %>
-     <tr>
-      <td>
-        <% if customer.profile_image.attached? %>
-            <%= image_tag customer.profile_image.variant(resize:'50x50') %>
-        <% else %>
-            <%= image_tag 'no_image.jpg', size:'50x50' %>
-        <% end %>
-      </td>
-      <td><%= customer.name %></td>
-      <td><%= link_to "Show", customer, class: "customer_#{customer.id}" %></td>
-     </tr>
-    <% end %>
-    <%= paginate @customers %>
-   </tbody>
-  </table>
-
-<!--goals一覧 -->
-<% elsif @range == '2' %>
-  <h2>目標： "<%= @word %>"</h2>
-  <table class="table table-hover table-inverse">
-    <thead>
-      <tr>
-       <th></th>
-       <th>Title</th>
-       <th>Detail</th>
-       <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-       <% @goals.each do |goal| %>
+     <tbody>
+      <% @customers.each do |customer| %>
        <tr>
         <td>
-         <%= link_to(goal.customer) do %>
-          <% if goal.customer.profile_image.attached? %>
-            <%= image_tag goal.customer.profile_image.variant(resize:'50x50') %>
+          <% if customer.profile_image.attached? %>
+              <%= image_tag customer.profile_image.variant(resize:'50x50') %>
           <% else %>
               <%= image_tag 'no_image.jpg', size:'50x50' %>
           <% end %>
-         <% end %>
         </td>
-        <td>
-         <%= link_to goal.goal_title, goal, class: "goal_#{goal.id}" %>
-        </td>
-        <td><%= goal.goal_description.truncate(10, separator: ' ') %></td>
+        <td><%= customer.name %></td>
+        <td><%= link_to "Show", customer, class: "customer_#{customer.id}" %></td>
        </tr>
-       <% end %>
-       <%= paginate @goals %>
-    </tbody>
-  </table>
+      <% end %>
+      <%= paginate @customers %>
+     </tbody>
+    </table>
 
-<!--events一覧-->
-<% else %>
+  <!--goals一覧 -->
+  <% elsif @range == '2' %>
+    <h2>目標： "<%= @word %>"</h2>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+         <th></th>
+         <th>Title</th>
+         <th>Detail</th>
+         <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <h2>予定： "<%= @word %>"</h2>
-  <table class="table table-hover table-inverse">
-   <thead>
-     <tr>
-      <th></th>
-      <th>Title</th>
-      <th colspan="3"></th>
-     </tr>
-   </thead>
+      <tbody>
+         <% @goals.each do |goal| %>
+         <tr>
+          <td>
+           <%= link_to(goal.customer) do %>
+            <% if goal.customer.profile_image.attached? %>
+              <%= image_tag goal.customer.profile_image.variant(resize:'50x50') %>
+            <% else %>
+                <%= image_tag 'no_image.jpg', size:'50x50' %>
+            <% end %>
+           <% end %>
+          </td>
+          <td>
+           <%= link_to goal.goal_title, goal, class: "goal_#{goal.id}" %>
+          </td>
+          <td><%= goal.goal_description.truncate(10, separator: ' ') %></td>
+         </tr>
+         <% end %>
+         <%= paginate @goals %>
+      </tbody>
+    </table>
 
-   <tbody>
-    <% @events.each do |event| %>
-     <tr>
-      <td>
-        <% if event.customer.profile_image.attached? %>
-            <%= image_tag event.customer.profile_image.variant(resize:'50x50') %>
-        <% else %>
-            <%= image_tag 'no_image.jpg', size:'50x50' %>
-        <% end %>
-      </td>
-      <td><%= event.event_title %></td>
-      <td><%= link_to "Show", event, class: "event_#{event.id}" %></td>
-     </tr>
-    <% end %>
-    <%= paginate @events %>
-   </tbody>
-  </table>
-<% end %>
+  <!--events一覧-->
+  <% else %>
+
+    <h2>予定： "<%= @word %>"</h2>
+    <table class="table table-hover table-inverse">
+     <thead>
+       <tr>
+        <th></th>
+        <th>Title</th>
+        <th colspan="3"></th>
+       </tr>
+     </thead>
+
+     <tbody>
+      <% @events.each do |event| %>
+       <tr>
+        <td>
+          <% if event.customer.profile_image.attached? %>
+              <%= image_tag event.customer.profile_image.variant(resize:'50x50') %>
+          <% else %>
+              <%= image_tag 'no_image.jpg', size:'50x50' %>
+          <% end %>
+        </td>
+        <td><%= event.event_title %></td>
+        <td><%= link_to "Show", event, class: "event_#{event.id}" %></td>
+       </tr>
+      <% end %>
+      <%= paginate @events %>
+     </tbody>
+    </table>
+  <% end %>
+</div>
