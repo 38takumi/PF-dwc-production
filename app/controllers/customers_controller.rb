@@ -5,15 +5,13 @@ class CustomersController < ApplicationController
     # @customers = Customer.all
     @customers = Customer.page(params[:page]).reverse_order
     @customer = current_customer
-    # 次の１行は多分使っていないのでテストしてから消す
-    # @goals = Goal.all
     @goal = Goal.new
   end
 
   def show
-     @customer = Customer.find(params[:id])
-     @goal = Goal.new
-     @goals = @customer.goals
+    @customer = Customer.find(params[:id])
+    @goal = Goal.new
+    @goals = @customer.goals
   end
 
   # def new
@@ -42,11 +40,9 @@ class CustomersController < ApplicationController
     @customer = current_customer
     if @customer.update(customer_params)
       flash[:notice] = "You have updated user successfully."
-      # ユーザー詳細ページに飛ばす
       redirect_to customer_path(@customer.id)
     else
       @customers = Customer.all
-      # ユーザー編集ページに飛ばす
       render :edit
     end
   end

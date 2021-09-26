@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root to: 'homes#top'
-  # root to: "events#index"
 
   devise_for :customers
 
   resources :events
+  # 下記は新規ボタンのもの
   # get 'events/btn_new' => 'events#btn_new'
   # post 'events' => 'events#btn_create'
 

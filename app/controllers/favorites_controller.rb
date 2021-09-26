@@ -1,13 +1,11 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_customer!
 
-
   def create
-    #  goalのidをcustomer.idと設定している
+    # goalのidをcustomer.idと設定している
     @goal = Goal.find(params[:goal_id])
     favorite = @goal.favorites.new(customer_id: current_customer.id)
     favorite.save
-    # goal詳細ページ、開いていたgoalの
     # redirect_to goal_path(@goal.id)
     redirect_to request.referer
   end

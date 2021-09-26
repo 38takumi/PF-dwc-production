@@ -2,7 +2,6 @@ class GoalCommentsController < ApplicationController
   # before_action :correct_goal_comment,only: [:destroy]
   before_action :authenticate_customer!
 
-
   def create
     @goal = Goal.find(params[:goal_id])
     # 空のコメントを作る
