@@ -1,29 +1,31 @@
-<!--目標編集ページ-->
-<h1>目標編集ページ</h1>
-  <!--成功時・エラー時メッセージ-->
-  <%= render 'goals/message', goal: @goal %>
+<div class="title-box-after-login">
+ <!--目標編集ページ-->
+ <h1>目標編集ページ</h1>
+   <!--成功時・エラー時メッセージ-->
+   <%= render 'goals/message', goal: @goal %>
 
- <%= form_with model: @goal, url: goal_path, local: true do |f| %>
- <p>
-   <div>Title</div>
+  <%= form_with model: @goal, url: goal_path, local: true do |f| %>
+  <p>
+    <div>Title</div>
 
-    <%= f.text_field :goal_title, class:"mb-1" %>
- </p>
- <p>
-   <div>Detail</div>
-    <%= f.text_field :goal_description, class:"mb-1" %>
- </p>
- <!--<p>-->
- <!--  <div>期限</div>-->
- <!--   <%#= f.text_field :goal_start, class:"mb-1" %>-->
- <!--   ~-->
- <!--   <%#= f.text_field :goal_end, class:"mb-1" %>-->
- <!--</p>-->
+     <%= f.text_field :goal_title, class:"mb-1" %>
+  </p>
+  <p>
+    <div>Detail</div>
+     <%= f.text_field :goal_description, class:"mb-1" %>
+  </p>
+  <!--<p>-->
+  <!--  <div>期限</div>-->
+  <!--   <%#= f.text_field :goal_start, class:"mb-1" %>-->
+  <!--   ~-->
+  <!--   <%#= f.text_field :goal_end, class:"mb-1" %>-->
+  <!--</p>-->
 
- <div class="actions">
-  <%= f.submit "Update Goal", class:"btn btn-success mb-1" %>
+  <div class="actions">
+   <%= f.submit "Update Goal", class:"btn btn-success mb-1" %>
+  </div>
+  <% end %>
+  <%= link_to "Show",goal_path(@goal.id) %>
+   |
+  <%= link_to "Back",goals_path %>
  </div>
- <% end %>
- <%= link_to "Show",goal_path(@goal.id) %>
-  |
- <%= link_to "Back",goals_path %>

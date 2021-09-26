@@ -1,25 +1,27 @@
-<%= "予定" %>
-<div class = "fix-event-title mb-3">
-<%= @event.event_title %>
-</div>
+<div class="title-box-after-login">
+  <%= "予定" %>
+  <div class = "fix-event-title mb-3">
+  <%= @event.event_title %>
+  </div>
 
-<%= "メモ"%>
-<div class = "fix-event-description mb-3">
-<%= @event.event_description %>
-</div>
+  <%= "メモ"%>
+  <div class = "fix-event-description mb-3">
+  <%= @event.event_description %>
+  </div>
 
-<%= "開始時間"%>
-<div class = "fix-event-start mb-3">
-<%= @event.event_start %>
-</div>
+  <%= "開始時間"%>
+  <div class = "fix-event-start mb-3">
+  <%= @event.event_start %>
+  </div>
 
-<%= "終了時間" %>
-<div class = "fix-event-end mb-3">
-<%= @event.event_end %>
-</div>
+  <%= "終了時間" %>
+  <div class = "fix-event-end mb-3">
+  <%= @event.event_end %>
+  </div>
 
-<% if @customer.id == current_customer.id %>
-<%= link_to "Edit",edit_event_path(@event.id), class:"btn btn-sm btn-success" %>
-|
-<%= link_to "Destroy", event_path(@event.id), method: :delete, class:"btn btn-sm btn-danger" %>
-<% end %>
+  <% if @customer.id == current_customer.id %>
+  <%= link_to "Edit",edit_event_path(@event.id), class:"btn btn-sm btn-success" %>
+  |
+  <%= link_to "Destroy", event_path(@event.id), method: :delete, class:"btn btn-sm btn-danger" %>
+  <% end %>
+</div>
