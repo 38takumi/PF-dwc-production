@@ -35,7 +35,7 @@ class GoalsController < ApplicationController
     else
       @goals = Goal.all
       @customer = current_customer
-      render :index
+      redirect_to goals_path
     end
   end
 
