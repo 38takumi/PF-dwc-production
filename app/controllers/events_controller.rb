@@ -16,6 +16,7 @@ class EventsController < ApplicationController
     @event.save
   end
 
+  # 現在は使っていない部分　ここから
   # def btn_new
   #   @event = Event.new
   # end
@@ -26,6 +27,7 @@ class EventsController < ApplicationController
   #   @events = Event.all
   #   redirect_to action: :show
   # end
+  # 現在は使っていない部分　ここまで
 
   def show
     @event = Event.find(params[:id])

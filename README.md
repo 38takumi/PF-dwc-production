@@ -32,7 +32,7 @@ https://docs.google.com/spreadsheets/d/1qKBYtVMIVxXSkwdkrU3YAEh1cnJgIWdO2deErbZF
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails,Bootstrap,Flexbox
+- フレームワーク：Ruby on Rails,Bootstrap
 - JSライブラリ：jQuery
 - IDE：Cloud9
 - デプロイ自動化 : Git Hub Actions

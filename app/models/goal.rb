@@ -3,8 +3,8 @@ class Goal < ApplicationRecord
  has_many :goal_comments, dependent: :destroy
  has_many :favorites, dependent: :destroy
 
+ # いいねを押したcustomer.idを全て取得、条件に当てはまるかどうか
  def favorited_by?(customer)
-   # いいねを押したcustomer.idを全て取得、条件に当てはまるかどうか
    favorites.where(customer_id: customer.id).exists?
    # favorites.exists?(customer_id: customer.id)
  end
@@ -31,5 +31,4 @@ class Goal < ApplicationRecord
 
  validates :goal_description, presence: true
  validates :goal_description, length: { maximum: 200 }
-
 end
