@@ -8,6 +8,7 @@ class Customer < ApplicationRecord
   has_many :goals, dependent: :destroy
   has_many :goal_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :tags, dependent: :destroy
 
 
   #followingについて

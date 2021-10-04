@@ -36,9 +36,14 @@ class CustomersController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:id])
     @customer = current_customer
     if @customer.update(customer_params)
+      # APIここから
+      tags = Vision.get_image_data(@customer.profile_image)
+      tags.each do |tag|
+        @customer.tags.create(tag_name: tag)
+      end
+      # APIここまで
       flash[:notice] = "You have updated user successfully."
       redirect_to customer_path(@customer.id)
     else

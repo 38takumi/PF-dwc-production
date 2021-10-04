@@ -7,6 +7,11 @@
   <% else %>
       <%= image_tag 'no_image.jpg', size:'100x100' %>
   <% end %>
+  <div>
+    <% @customer.tags.each do |tag| %>
+      <span class="label"><%= tag.tag_name %></span>
+    <% end %>
+  </div>
 </p>
    <table class="table">
     <tbody>
