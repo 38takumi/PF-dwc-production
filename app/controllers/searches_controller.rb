@@ -10,10 +10,14 @@ class SearchesController < ApplicationController
     elsif @range == '2'
      @goals = Goal.search(search,@word)
      @goals = @goals.page(params[:page])
-    else
+    elsif @range == '3'
      @events = current_customer.events.search(search,@word)
-    # @events = Event.search(search,@word)
+     # 制限なしバージョン
+     # @events = Event.search(search,@word)
      @events = @events.page(params[:page])
+    else
+     @tags = Tag.search(search,@word)
+     @tags = @tags.page(params[:page])
     end
   end
 end

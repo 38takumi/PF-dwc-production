@@ -16,9 +16,9 @@
        <tr>
         <td>
           <% if customer.profile_image.attached? %>
-              <%= image_tag customer.profile_image.variant(resize:'50x50') %>
+            <%= image_tag customer.profile_image.variant(resize:'50x50') %>
           <% else %>
-              <%= image_tag 'no_image.jpg', size:'50x50' %>
+            <%= image_tag 'no_image.jpg', size:'50x50' %>
           <% end %>
         </td>
         <td><%= customer.name %></td>
@@ -50,7 +50,7 @@
             <% if goal.customer.profile_image.attached? %>
               <%= image_tag goal.customer.profile_image.variant(resize:'50x50') %>
             <% else %>
-                <%= image_tag 'no_image.jpg', size:'50x50' %>
+              <%= image_tag 'no_image.jpg', size:'50x50' %>
             <% end %>
            <% end %>
           </td>
@@ -65,7 +65,7 @@
     </table>
 
   <!--events一覧-->
-  <% else %>
+  <% elsif @range == '3' %>
 
     <h2>予定： "<%= @word %>"</h2>
     <table class="table table-hover table-inverse">
@@ -82,9 +82,9 @@
        <tr>
         <td>
           <% if event.customer.profile_image.attached? %>
-              <%= image_tag event.customer.profile_image.variant(resize:'50x50') %>
+            <%= image_tag event.customer.profile_image.variant(resize:'50x50') %>
           <% else %>
-              <%= image_tag 'no_image.jpg', size:'50x50' %>
+            <%= image_tag 'no_image.jpg', size:'50x50' %>
           <% end %>
         </td>
         <td><%= event.event_title %></td>
@@ -92,6 +92,40 @@
        </tr>
       <% end %>
       <%= paginate @events %>
+     </tbody>
+    </table>
+
+    <!-- ユーザーとの連携は成作中 -->
+    <!--tags一覧-->
+    <% else %>
+
+    <h2>タグ： "<%= @word %>"</h2>
+    <table class="table table-hover table-inverse">
+     <thead>
+       <tr>
+        <th></th>
+        <th>Tag</th>
+        <th colspan="3"></th>
+       </tr>
+     </thead>
+
+     <tbody>
+      <% @tags.each do |tag| %>
+       <tr>
+        <td>
+          <%# if tag.customer.profile_image.attached? %>
+            <!--<%#= image_tag tag.customer.profile_image.variant(resize:'50x50') %>-->
+          <%# else %>
+            <!--<%#= image_tag 'no_image.jpg', size:'50x50' %>-->
+          <%# end %>
+        </td>
+        <td><%= tag.tag_name %></td>
+        <td>
+          <!--<%#= link_to "Show", customer, class: "tag.customer_#{customer.id}" %>-->
+        </td>
+       </tr>
+      <% end %>
+      <%= paginate @tags %>
      </tbody>
     </table>
   <% end %>
