@@ -1,7 +1,7 @@
 <!--コメント欄、コメント入力欄ここから-->
     <tbody>
      <!--この目標に対して入力されたコメントを抽出することを繰り返す-->
-     <% goal.goal_comments.each do|goal_comment| %>
+     <% @goal_comments.each do|goal_comment| %>
       <% goal_comment_customer = goal_comment.customer %>
       <tr>
 
@@ -35,6 +35,7 @@
         <% end %>
       </tr>
      <% end %>
+     <%= paginate @goal_comments %>
      <!--読み込むeachの文のend-->
 
      <!--目標に対するコメント-->

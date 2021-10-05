@@ -14,6 +14,8 @@ class GoalsController < ApplicationController
     @customer = @goal.customer
     @goal_new = Goal.new
     @goal_comment = GoalComment.new
+    @goal_comments = @goal.goal_comments.page(params[:page]).per(10).reverse_order
+
     # @goal_comments = GoalComment.find(params[:id])
     # @comments_customer = @goal_comments.customer
   end
