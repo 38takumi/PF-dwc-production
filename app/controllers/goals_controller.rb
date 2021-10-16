@@ -42,7 +42,7 @@ class GoalsController < ApplicationController
   end
 
   def edit
-     @goal = Goal.find(params[:id])
+    @goal = Goal.find(params[:id])
   end
 
   def update
@@ -70,7 +70,6 @@ class GoalsController < ApplicationController
       redirect_to goals_path
     end
   end
-
 
   private
   def goal_params

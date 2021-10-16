@@ -12,7 +12,6 @@ class SearchesController < ApplicationController
      @goals = @goals.page(params[:page])
     elsif @range == '3'
      @events = current_customer.events.search(search,@word)
-     # 制限なしバージョン
      # @events = Event.search(search,@word)
      @events = @events.page(params[:page])
     else

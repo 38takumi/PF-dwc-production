@@ -59,14 +59,12 @@ class CustomersController < ApplicationController
   #   redirect_to customers_path
   # end
 
-
   def correct_customer
       @customer = Customer.find(params[:id])
     unless @customer.id == current_customer.id
       redirect_to customer_path(current_customer)
     end
   end
-
 
   private
   def customer_params
