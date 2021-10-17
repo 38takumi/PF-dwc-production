@@ -13,38 +13,38 @@
     <% end %>
   </div>
 </p>
-   <table class="table">
-    <tbody>
-     <tr>
-       <th>Name</th>
-       <th><%= @customer.name %></th>
-     </tr>
-     <tr>
-       <th>Introduction</th>
-       <th><%= @customer.introduction %></th>
-     </tr>
- <!--ユーザーインフォを入れる　ここまで-->
+<table class="table">
+  <tbody>
+   <tr>
+     <th>Name</th>
+     <th><%= @customer.name %></th>
+   </tr>
+   <tr>
+     <th>Introduction</th>
+     <th><%= @customer.introduction %></th>
+   </tr>
+   <!--ユーザーインフォを入れる　ここまで-->
 
 
-<!-- followsとfollowers ここから  -->
-      <tr>
-      <th>
-        follows   <%= link_to customer_followings_path(@customer.id) do %>
-          <%= @customer.followings.count %>
-        <% end %>
-      </th>
-     </tr>
-     <tr>
-      <th>
-        followers  <%= link_to  customer_followers_path(@customer.id) do %>
-          <%= @customer.followers.count %>
-        <% end %>
-      </th>
-     </tr>
-<!-- followsとfollowers ここまで  -->
+   <!-- followsとfollowers ここから  -->
+   <tr>
+    <th>
+      follows   <%= link_to customer_followings_path(@customer.id) do %>
+        <%= @customer.followings.count %>
+      <% end %>
+    </th>
+   </tr>
+   <tr>
+    <th>
+      followers  <%= link_to  customer_followers_path(@customer.id) do %>
+        <%= @customer.followers.count %>
+      <% end %>
+    </th>
+   </tr>
+  <!-- followsとfollowers ここまで  -->
 
-    </tbody>
-   </table>
+  </tbody>
+</table>
 
 <!-- フォローボタン -->
 <!--ユーザが現在ユーザなら表示させない-->
@@ -62,10 +62,10 @@
 
 
  <!--編集用ボタン-->
-   <div class="row">
+ <div class="row">
    <% if @customer.id == current_customer.id %>
     <%= link_to edit_customer_path(@customer.id), class: "btn btn-outline-secondary btn-block mb-4" do %>
      <i class="fas fa-user-cog"></i>
     <% end %>
    <% end %>
-   </div>
+ </div>
