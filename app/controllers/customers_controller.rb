@@ -37,6 +37,9 @@ class CustomersController < ApplicationController
 
   def update
     @customer = current_customer
+    @customer.tags.each do |tag|
+      tag.delete
+    end
     if @customer.update(customer_params)
       # APIここから
       tags = Vision.get_image_data(@customer.profile_image)
