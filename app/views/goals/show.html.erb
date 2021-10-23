@@ -10,6 +10,7 @@
      <!--New book-->
      <%= render 'goals/new', goal: @goal_new %>
     </div>
+
     <div class="col-md-8 offset-md-1">
      <!--Goal detailの部分　ここから-->
      <h2>Goal detail</h2>
@@ -72,14 +73,11 @@
         </tr>
        </tbody>
        <!--Goal detailの部分　ここまで-->
-
        <!--コメント欄、コメント入力欄ここから-->
        <%= render 'goals/goal_comment', goal: @goal, goal_comment: @goal_comment %>
        <!--コメント欄、コメント入力欄ここまで-->
-
      </table>
     </div>
-
   </body>
  </div>
 </div>

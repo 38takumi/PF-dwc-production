@@ -1,13 +1,12 @@
 <div class="title-box-after-login">
  <!--目標編集ページ-->
- <h1>目標編集ページ</h1>
+ <h2>目標編集ページ</h2>
  <!--成功時・エラー時メッセージ-->
  <%= render 'goals/message', goal: @goal %>
 
  <%= form_with model: @goal, url: goal_path, local: true do |f| %>
  <p>
    <div>Title</div>
-
     <%= f.text_field :goal_title, class:"mb-1" %>
  </p>
  <p>
