@@ -32,7 +32,7 @@
                     <% if goal.customer.profile_image.attached? %>
                       <%= image_tag goal.customer.profile_image.variant(resize:'100x100')%>
                     <% else %>
-                        <%= image_tag 'no_image.jpg', size:'40x40' %>
+                      <%= image_tag 'no_image.jpg', size:'40x40' %>
                     <% end %>
                     <%#= attachment_image_tag @customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
                   <% end %>
