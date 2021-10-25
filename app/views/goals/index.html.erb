@@ -39,7 +39,7 @@
                 </th>
                 <!--目標の詳細画面に飛ばす-->
                 <td><%= link_to goal.goal_title,goal_path(goal.id) %></td>
-                <td><%= goal.goal_description.truncate(10, separator: ' ') %></td>
+                <td><%= goal.goal_description.truncate(10, omission:"…") %></td>
 
                 <!--いいね機能-->
                 <td>
