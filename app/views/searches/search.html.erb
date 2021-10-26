@@ -57,7 +57,7 @@
           <td>
            <%= link_to goal.goal_title, goal, class: "goal_#{goal.id}" %>
           </td>
-          <td><%= goal.goal_description.truncate(10, separator: ' ') %></td>
+          <td><%= goal.goal_description.truncate(10, omission:"…") %></td>
          </tr>
          <% end %>
          <%= paginate @goals %>
