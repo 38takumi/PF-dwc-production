@@ -17,8 +17,8 @@
 カレンダーと連動して日付内の項目ごとの詳しい内容がわかるように個別にメモ機能を付けました。
 
 
-### ターゲットユーザ
-一般ユーザ（学生、社会人、主婦等）
+### ターゲットユーザー
+一般ユーザー（学生、社会人、主婦等）
 
 
 ### 主な利用シーン
@@ -37,6 +37,7 @@ https://docs.google.com/spreadsheets/d/1qKBYtVMIVxXSkwdkrU3YAEh1cnJgIWdO2deErbZF
 - IDE：Cloud9
 - デプロイ自動化 : Git Hub Actions
 - バッチ処理自動化 : whenever
+- テスト自動化 : RSpec
 
 
 ## 使用素材

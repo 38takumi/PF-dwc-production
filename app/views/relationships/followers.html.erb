@@ -1,32 +1,32 @@
 <h2>Follower Users</h2>
-  <% if @customers.exists? %>
-  <table class="table">
-    <thead>
+<% if @customers.exists? %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
       <tr>
-        <th>image</th>
-        <th>name</th>
-        <th></th>
+        <th scope="col">
+          <% if customer.profile_image.attached? %>
+            <%= image_tag customer.profile_image.variant(resize:'40x40')%>
+          <% else %>
+            <%= image_tag 'no_image.jpg', size:'40x40' %>
+          <% end %>
+          <%#= attachment_image_tag customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
+        </th>
+        <td><%= customer.name %></td>
+        <td>フォロー数: <%= customer.followings.count %></td>
+        <td>フォロワー数: <%= customer.followers.count %></td>
+        <td><%= link_to "Show",customer_path(customer.id) %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @customers.each do |customer| %>
-        <tr>
-          <th scope="col">
-            <% if customer.profile_image.attached? %>
-              <%= image_tag customer.profile_image.variant(resize:'40x40')%>
-            <% else %>
-              <%= image_tag 'no_image.jpg', size:'40x40' %>
-            <% end %>
-            <%#= attachment_image_tag customer, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
-          </th>
-          <td><%= customer.name %></td>
-          <td>フォロー数: <%= customer.followings.count %></td>
-          <td>フォロワー数: <%= customer.followers.count %></td>
-          <td><%= link_to "Show",customer_path(customer.id) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <% else %>
-    <p>ユーザーはいません</p>
-  <% end %>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>
