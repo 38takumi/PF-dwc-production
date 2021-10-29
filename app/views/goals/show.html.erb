@@ -43,7 +43,7 @@
           <% end %>
           <!--いいね機能-->
           <th>
-           <!--今投稿されている目標に現在のユーザはいいねしているかどうか-->
+           <!--いいねしているかどうかで表示を変える-->
            <% if @goal.favorited_by?(current_customer) %>
            <%# if Favorite.find_by(user_id: current_user.id, goal_id: goal.id) %>
             <p>
