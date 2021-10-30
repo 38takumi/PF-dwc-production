@@ -10,17 +10,13 @@ class Customer < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :tags, dependent: :destroy
 
-
   #followingについて
-  #「class_name: "Relationship"」は省略可能
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  #与フォロー関係を通じて参照→follower_idをフォローしている人　定義したのでfollowingsはモデルのように”.followings”とかで使える
   has_many :followings, through: :relationships, source: :followed
   #followingについてここまで
 
   #followerについて
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  #被フォロー関係を通じて参照→followed_idをフォローしている人
   has_many :followers, through: :reverse_of_relationships, source: :follower
   #followerについてここまで
 
@@ -64,7 +60,6 @@ class Customer < ApplicationRecord
 
   # プロフィール画像用
   has_one_attached :profile_image
-  #プロフィール画像用 deviseに入ってるかも
   # Refile用
   # attachment :profile_image
 
@@ -78,7 +73,7 @@ class Customer < ApplicationRecord
 
   def image_type
     if !profile_image.blob.content_type.in?(%('image/jpeg image/png'))
-      profile_image.purge # Rails6では、この1行は必要ない
+      profile_image.purge # Rails6では、この1行は削除
       errors.add(:profile_image, 'はJPEGまたはPNG形式を選択してアップロードしてください')
     end
   end
