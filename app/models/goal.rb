@@ -26,7 +26,6 @@ class Goal < ApplicationRecord
  end
  # 検索機能　ここまで
 
-
  validates :goal_title, presence: true
 
  validates :goal_description, presence: true

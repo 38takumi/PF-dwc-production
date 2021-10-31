@@ -50,27 +50,22 @@ class Customer < ApplicationRecord
   end
   # 検索機能　ここまで
 
-
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :name, length: { in: 2..20 }
 
   validates :introduction, length: { maximum: 50 }
 
-
   # プロフィール画像用
   has_one_attached :profile_image
   # Refile用
   # attachment :profile_image
-
-
 
   # 画像のタイプ（拡張子）にバリデーションを実装する
   validate :image_type, if: :was_attached?
   validate :file_size, if: :was_attached?
 
   private
-
   def image_type
     if !profile_image.blob.content_type.in?(%('image/jpeg image/png'))
       profile_image.purge # Rails6では、この1行は削除
