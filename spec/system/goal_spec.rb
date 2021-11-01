@@ -8,7 +8,7 @@
 
 
 # describe '投稿のテスト' do
-#   let!(:goal) { create(:goal, goal_title:'hoge',goal_description:'goal_description') }
+#   let!(:goal) { create(:goal, goal_title:'hoge',goal_description:'hogehoge') }
 #   describe 'トップ画面(root_path)のテスト' do
 #     before do
 #       visit root_path
