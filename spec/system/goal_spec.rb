@@ -29,9 +29,6 @@
 
 #     context '表示の確認' do
 
-# ここはいらないかも
-# ログイン後に左の投稿でtestするため
-
 #       it 'トップ画面(root_path)に「スケジュール管理帳」が表示されているか' do
 #         expect(page).to have_content 'スケジュール管理帳'
 #       end
