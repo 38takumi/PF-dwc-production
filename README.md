@@ -3,8 +3,9 @@
 ## サイト概要
 カレンダー機能を使ったスケジュール管理アプリです。</br>
 一覧や検索機能が付いています。</br>
-目標設定機能があり、それに対するコメントとセンチメント分析が出来ます。</br>
-現状をカレンダーで整理して、空き時間を見つけて目標を立てるのに便利です。
+目標設定機能があり、それに対してコメント出来ます。</br>
+現状をカレンダーで整理して、空き時間を見つけて目標を立てるのに便利です。</br>
+プロフィール画像に対してタグ付け機能をAPIを使って行っています。
 
 
 
@@ -30,7 +31,7 @@ https://docs.google.com/spreadsheets/d/1qKBYtVMIVxXSkwdkrU3YAEh1cnJgIWdO2deErbZF
 
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：macOS Big Sur
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails,Bootstrap
 - JSライブラリ：jQuery
