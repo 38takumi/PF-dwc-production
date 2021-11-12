@@ -60,6 +60,38 @@
 #     end
 #   end
 
+
+# 下記は検索の確認用
+# RSpec.describe 'ログイン後の動作' do
+# <!-- 以降ログインと投稿のテストを行う　ここから -->
+#   describe 'ログイン' do
+#     it '新規投稿の目標のテキストボックスをクリックしてhogeと記入' do
+#       expect(クリックして目標をhogeと記入).to eq hoge
+#     end
+#   end
+#   describe '新規投稿の詳細を記入' do
+#     it '新規投稿の詳細のテキストボックスをクリックしてhogehogeと記入' do
+#       expect(クリックして詳細をhogehogeと記入).to eq hogehoge
+#     end
+#   end
+# <!-- 以降ログインと投稿のテストを行う　ここまで -->
+#   describe '検索の動作確認' do
+#     it 'text_field_tagの選択と入力' do
+#       fill_in　'text_field_tag', with: 'hoge'
+#     end
+#     it 'rangeタブの選択と表示確認' do
+#       expect(page).to have_select('range', selected: '目標', options: ['ユーザー', '目標', '予定', 'タグ'])
+#     end
+#     it 'searchタブの選択と表示確認' do
+#       expect(page).to have_select('search', selected: '部分一致', options: ['前方一致', '後方一致', '完全一致', '部分一致'])
+#     end
+#     it '検索の実行' do
+#       click_button '検索'
+#     end
+#   end
+# end
+
+
 #   describe "投稿一覧のテスト" do
 #     before do
 #       visit goals_path
@@ -124,7 +156,8 @@
 
 
 
-
+# ログイン→投稿→検索→検索結果が表示されているか確認→詳細確認→編集→更新→更新内容の確認→その投稿内容を削除→削除されているか確認
+# ＊下記は詳細＊
 # 投稿した内容の確認、というより編集？
 # 詳細ボタンを押す
 # 編集ボタンを押す
