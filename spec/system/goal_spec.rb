@@ -7,6 +7,7 @@
 # エラー箇所があるので実行しないで下さい。
 
 
+# 投稿前の確認
 # describe '投稿のテスト' do
 #   let!(:goal) { create(:goal, goal_title:'hoge',goal_description:'hogehoge') }
 #   describe 'トップ画面(root_path)のテスト' do
