@@ -67,12 +67,17 @@
 # <!-- 以降ログインと投稿のテストを行う　ここから -->
 #   describe 'ログイン' do
 #     it '新規投稿の目標のテキストボックスをクリックしてhogeと記入' do
-#       expect(クリックして目標をhogeと記入).to eq hoge
+#       fill_in　'Title', with: 'hoge'
 #     end
 #   end
 #   describe '新規投稿の詳細を記入' do
 #     it '新規投稿の詳細のテキストボックスをクリックしてhogehogeと記入' do
-#       expect(クリックして詳細をhogehogeと記入).to eq hogehoge
+#       fill_in　'Detail', with: 'hogehoge'
+#     end
+#   end
+#   describe '新規投稿を作成' do
+#     it '新規投稿の作成するボタンをクリックして新規投稿を作成' do
+#       click_button '作成する'
 #     end
 #   end
 # <!-- 以降ログインと投稿のテストを行う　ここまで -->
