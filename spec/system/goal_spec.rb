@@ -14,20 +14,6 @@
 #     before do
 #       visit root_path
 #     end
-
-# 追加topページでLog inログインボタンをクリック
-# Log inページに遷移しているかどうか
-# Name,Email,Passwordをそれぞれ入力
-# Log inボタンを押す
-
-# ログイン後はゴール一覧に遷移する
-# goal_path(@goal.id)
-
-# 投稿は左の投稿の部分からする
-# 投稿後のリダイレクト先は正しいかどうか
-
-# その他表示の確認
-
 #     context '表示の確認' do
 
 #       it 'トップ画面(root_path)に「スケジュール管理帳」が表示されているか' do
@@ -161,5 +147,3 @@
 # end
 
 
-
-# 
