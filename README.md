@@ -1,5 +1,7 @@
 # スケジュール管理帳
 
+---
+
 ## サイト概要
 **スケジュール管理アプリです。**</br>
 カレンダーを使ってスケジュールを可視化して一目で把握しやすくしました。</br>
@@ -35,11 +37,12 @@
 スケジュールを整理するときに、目標も一緒に立てたら使いやすいと思い目標設定機能も付けました。</br>
 検索機能も付いて目当ての項目をすぐに調べられます。
 
+---
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1qKBYtVMIVxXSkwdkrU3YAEh1cnJgIWdO2deErbZFILk/edit?usp=sharing
 
-
+---
 
 ## 開発環境
 - OS：macOS Big Sur
@@ -51,7 +54,7 @@ https://docs.google.com/spreadsheets/d/1qKBYtVMIVxXSkwdkrU3YAEh1cnJgIWdO2deErbZF
 - バッチ処理自動化 : whenever
 - テスト自動化 : RSpec
 
-
+---
 
 ## 使用素材
 - ぱくたそ https://www.pakutaso.com/
